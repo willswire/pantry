@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "prod": "ng build --prod --baseHref=~wwalker/pantry/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

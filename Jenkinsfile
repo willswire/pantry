@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build Angular') {
       steps {
-        sh 'npm run build'
+        sh 'npm run prod'
       }
     }
     stage('Deploy') {
