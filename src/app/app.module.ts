@@ -13,15 +13,25 @@ import { MatGridListModule } from "@angular/material/grid-list";
 import { MatButtonModule } from "@angular/material/button";
 
 import { NavigationComponent } from "./navigation/navigation.component";
-import { UserCardComponent } from "./home/user-card/user-card.component";
+import { UserCardComponent } from "./info/user-card/user-card.component";
+import { InfoComponent } from "./info/info.component";
 import { HomeComponent } from "./home/home.component";
+import { ListsComponent } from './lists/lists.component';
+import { HadComponent } from './lists/had/had.component';
+import { HaveComponent } from './lists/have/have.component';
+import { WantComponent } from './lists/want/want.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     UserCardComponent,
-    HomeComponent
+    InfoComponent,
+    HomeComponent,
+    ListsComponent,
+    HadComponent,
+    HaveComponent,
+    WantComponent
   ],
   imports: [
     BrowserModule,

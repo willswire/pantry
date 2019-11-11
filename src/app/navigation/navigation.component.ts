@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AppInfoService } from "../app-info.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-navigation",
@@ -17,9 +18,13 @@ export class NavigationComponent implements OnInit {
     this._title = value;
   }
 
-  constructor(private app: AppInfoService) {}
+  constructor(private app: AppInfoService, private router: Router) {}
 
   ngOnInit() {
     this.title = this.app.title;
+  }
+
+  goInfo() {
+    this.router.navigate(["./info"]);
   }
 }

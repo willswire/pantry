@@ -1,43 +1,15 @@
 <mat-toolbar>
   <span>{{ _title }}</span>
   <span class="logo-padding"></span>
-  <button mat-button>Have</button>
-  <button mat-button>Want</button>
+  <button mat-button routerLink="/">Home</button>
+  <button mat-button [matMenuTriggerFor]="listMenu">My Lists</button>
+  <mat-menu #listMenu="matMenu">
+    <button mat-menu-item routerLink="/had">Items I Had</button>
+    <button mat-menu-item routerLink="/have">Items I Have</button>
+    <button mat-menu-item routerLink="/want">Items I Want</button>
+  </mat-menu>
   <span class="navigation-padding"></span>
-  <span
-    ><button
-      mat-icon-button
-      [matMenuTriggerFor]="actionMenu"
-      aria-label="main navigation menu"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
-  </span>
-  <span
-    ><button
-      mat-icon-button
-      [matMenuTriggerFor]="menu"
-      aria-label="main navigation menu"
-    >
-      <mat-icon>person</mat-icon>
-    </button>
-  </span>
-  <mat-menu #actionMenu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>dialpad</mat-icon>
-      <span>Redial</span>
-    </button>
-    <button mat-menu-item disabled>
-      <mat-icon>voicemail</mat-icon>
-      <span>Check voice mail</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>notifications_off</mat-icon>
-      <span>Disable alerts</span>
-    </button>
-  </mat-menu>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>Login</button>
-    <button mat-menu-item>Logout</button>
-  </mat-menu>
+  <button mat-icon-button aria-label="my account" routerLink="/info">
+    <mat-icon>person</mat-icon>
+  </button>
 </mat-toolbar>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: "home-user-card",
+  selector: "info-user-card",
   templateUrl: "./user-card.component.html",
   styleUrls: ["./user-card.component.css"]
 })
