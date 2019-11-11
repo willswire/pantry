@@ -4,9 +4,9 @@
   <button mat-button routerLink="/">Home</button>
   <button mat-button [matMenuTriggerFor]="listMenu">My Lists</button>
   <mat-menu #listMenu="matMenu">
-    <button mat-menu-item routerLink="/had">Items I Had</button>
-    <button mat-menu-item routerLink="/have">Items I Have</button>
-    <button mat-menu-item routerLink="/want">Items I Want</button>
+    <button mat-menu-item routerLink="/lists/had">Items I Had</button>
+    <button mat-menu-item routerLink="/lists/have">Items I Have</button>
+    <button mat-menu-item routerLink="/lists/want">Items I Want</button>
   </mat-menu>
   <span class="navigation-padding"></span>
   <button mat-icon-button aria-label="my account" routerLink="/info">
