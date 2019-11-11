@@ -10,6 +10,15 @@
       <mat-icon>menu</mat-icon>
     </button>
   </span>
+  <span
+    ><button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="main navigation menu"
+    >
+      <mat-icon>person</mat-icon>
+    </button>
+  </span>
   <mat-menu #menu="matMenu">
     <button mat-menu-item>
       <mat-icon>dialpad</mat-icon>
