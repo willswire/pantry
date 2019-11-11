@@ -8,7 +8,7 @@ import { HaveComponent } from "./lists/have/have.component";
 import { WantComponent } from "./lists/want/want.component";
 
 const routes: Routes = [
-  { path: "", component: HomeComponent, pathMatch: "full" },
+  { path: "**", component: HomeComponent, pathMatch: "full" },
   { path: "info", component: InfoComponent },
   { path: "lists", component: ListsComponent },
   { path: "lists/had", component: HadComponent },
