@@ -1,0 +1,8 @@
+.navigation-padding {
+  /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+.mat-icon-button {
+  background-color: transparent;
+}
