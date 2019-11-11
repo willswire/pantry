@@ -7,7 +7,7 @@ import { AppInfoService } from "../app-info.service";
   styleUrls: ["./navigation.component.css"]
 })
 export class NavigationComponent implements OnInit {
-  private _title: string;
+  public _title: string;
 
   public get title(): string {
     return this._title;
