@@ -1,10 +1,13 @@
 <mat-toolbar>
   <span>{{ _title }}</span>
+  <span class="logo-padding"></span>
+  <button mat-button>Have</button>
+  <button mat-button>Want</button>
   <span class="navigation-padding"></span>
   <span
     ><button
       mat-icon-button
-      [matMenuTriggerFor]="menu"
+      [matMenuTriggerFor]="actionMenu"
       aria-label="main navigation menu"
     >
       <mat-icon>menu</mat-icon>
@@ -19,7 +22,7 @@
       <mat-icon>person</mat-icon>
     </button>
   </span>
-  <mat-menu #menu="matMenu">
+  <mat-menu #actionMenu="matMenu">
     <button mat-menu-item>
       <mat-icon>dialpad</mat-icon>
       <span>Redial</span>
@@ -32,5 +35,9 @@
       <mat-icon>notifications_off</mat-icon>
       <span>Disable alerts</span>
     </button>
+  </mat-menu>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Login</button>
+    <button mat-menu-item>Logout</button>
   </mat-menu>
 </mat-toolbar>
