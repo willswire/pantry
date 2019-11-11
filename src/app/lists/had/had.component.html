@@ -1,1 +1,18 @@
-<main><p>had works!</p></main>
+<main>
+  <mat-card class="example-card">
+    <mat-list>
+      <h3 mat-subheader>Food</h3>
+      <mat-list-item *ngFor="let food of foods">
+        <mat-icon mat-list-icon>{{ food.icon }}</mat-icon>
+        <h4 mat-line>{{ food.name }}</h4>
+        <p mat-line>{{ food.expired | date }}</p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h3 mat-subheader>Items</h3>
+      <mat-list-item *ngFor="let item of items">
+        <mat-icon mat-list-icon>{{ item.icon }}</mat-icon>
+        <h4 mat-line>{{ item.name }}</h4>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</main>
