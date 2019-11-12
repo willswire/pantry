@@ -1,0 +1,22 @@
+<mat-card class="example-card">
+  <mat-card-title>Account Settings</mat-card-title>
+  <mat-card-content>
+    <mat-card-subtitle>Notifications</mat-card-subtitle>
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+    >
+      <mat-radio-button
+        class="example-radio-button"
+        *ngFor="let notification of notifications"
+        [value]="notification"
+      >
+        {{ notification }}
+      </mat-radio-button>
+    </mat-radio-group>
+    <mat-card-subtitle>iCloud Settings</mat-card-subtitle>
+    <section class="example-section">
+      <mat-checkbox class="example-margin">Enable</mat-checkbox>
+    </section>
+  </mat-card-content>
+</mat-card>

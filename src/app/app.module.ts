@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatMenuModule } from "@angular/material/menu";
@@ -12,6 +13,11 @@ import { MatCardModule } from "@angular/material/card";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatButtonModule } from "@angular/material/button";
 import { MatListModule } from "@angular/material/list";
+import { MatRadioModule } from "@angular/material/radio";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatSelectModule } from "@angular/material/select";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatInputModule } from "@angular/material";
 
 import { NavigationComponent } from "./navigation/navigation.component";
 import { UserCardComponent } from "./info/user-card/user-card.component";
@@ -21,6 +27,8 @@ import { ListsComponent } from "./lists/lists.component";
 import { HadComponent } from "./lists/had/had.component";
 import { HaveComponent } from "./lists/have/have.component";
 import { WantComponent } from "./lists/want/want.component";
+import { SettingsCardComponent } from "./info/settings-card/settings-card.component";
+import { AccountCardComponent } from "./info/account-card/account-card.component";
 
 @NgModule({
   declarations: [
@@ -32,7 +40,9 @@ import { WantComponent } from "./lists/want/want.component";
     ListsComponent,
     HadComponent,
     HaveComponent,
-    WantComponent
+    WantComponent,
+    SettingsCardComponent,
+    AccountCardComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +54,15 @@ import { WantComponent } from "./lists/want/want.component";
     MatCardModule,
     MatButtonModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatRadioModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
