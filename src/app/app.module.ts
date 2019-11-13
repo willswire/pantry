@@ -24,9 +24,6 @@ import { UserCardComponent } from "./info/user-card/user-card.component";
 import { InfoComponent } from "./info/info.component";
 import { HomeComponent } from "./home/home.component";
 import { ListsComponent } from "./lists/lists.component";
-import { HadComponent } from "./lists/had/had.component";
-import { HaveComponent } from "./lists/have/have.component";
-import { WantComponent } from "./lists/want/want.component";
 import { SettingsCardComponent } from "./info/settings-card/settings-card.component";
 import { AccountCardComponent } from "./info/account-card/account-card.component";
 
@@ -38,9 +35,6 @@ import { AccountCardComponent } from "./info/account-card/account-card.component
     InfoComponent,
     HomeComponent,
     ListsComponent,
-    HadComponent,
-    HaveComponent,
-    WantComponent,
     SettingsCardComponent,
     AccountCardComponent
   ],
