@@ -3,9 +3,7 @@ import {
   OnInit,
   ViewChild,
   ViewContainerRef,
-  ComponentFactoryResolver,
-  ComponentRef,
-  ComponentFactory
+  ComponentFactoryResolver
 } from "@angular/core";
 import { ListComponent } from "./list/list.component";
 
@@ -30,9 +28,4 @@ export class ListsComponent implements OnInit {
     this.componentRef = this.entry.createComponent(factory);
     this.componentRef.instance.viewRef = this.componentRef;
   }
-
-  /*   createList() {
-    console.log("creating a new list");
-    this.myLists.push(null);
-  } */
 }

@@ -37,9 +37,8 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroImage = this.heroImages[
-      Math.floor(Math.random() * this.heroImages.length)
-    ];
+    this.heroImage =
+      "assets/" + Math.ceil(Math.random() * 7) + "_listimage.png";
   }
 }
 
