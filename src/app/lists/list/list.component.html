@@ -1,0 +1,31 @@
+<mat-card class="listCard">
+  <mat-card-header>
+    <div mat-card-avatar class="user-image"></div>
+    <mat-card-title>My New List</mat-card-title>
+    <mat-card-subtitle>Not Shared</mat-card-subtitle>
+    <span class="list-header-spacer"></span>
+    <mat-icon
+      class="list-mark-icon"
+      aria-hidden="false"
+      aria-label="Example heart icon"
+      >favorite</mat-icon
+    >
+    <mat-icon
+      class="list-mark-icon"
+      aria-hidden="false"
+      aria-label="Example delete icon"
+      >edit</mat-icon
+    >
+    <mat-icon
+      class="list-mark-icon"
+      aria-hidden="false"
+      aria-label="Example delete icon"
+      >delete</mat-icon
+    >
+  </mat-card-header>
+  <img mat-card-image src="{{ heroImage }}" />
+  <mat-card-actions>
+    <button mat-button (click)="openHaveList()">HAVE</button>
+    <button mat-button>NEED</button>
+  </mat-card-actions>
+</mat-card>

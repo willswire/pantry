@@ -6,7 +6,7 @@ import { ListsComponent } from "./lists/lists.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent, pathMatch: "full" },
-  { path: "info/", component: InfoComponent },
+  { path: "info", component: InfoComponent },
   { path: "lists", component: ListsComponent }
 ];
 

@@ -18,6 +18,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatInputModule } from "@angular/material";
+import { MatDialogModule } from "@angular/material/dialog";
 
 import { NavigationComponent } from "./navigation/navigation.component";
 import { UserCardComponent } from "./info/user-card/user-card.component";
@@ -26,6 +27,7 @@ import { HomeComponent } from "./home/home.component";
 import { ListsComponent } from "./lists/lists.component";
 import { SettingsCardComponent } from "./info/settings-card/settings-card.component";
 import { AccountCardComponent } from "./info/account-card/account-card.component";
+import { ListComponent, HaveList } from "./lists/list/list.component";
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { AccountCardComponent } from "./info/account-card/account-card.component
     HomeComponent,
     ListsComponent,
     SettingsCardComponent,
-    AccountCardComponent
+    AccountCardComponent,
+    ListComponent,
+    HaveList
   ],
   imports: [
     BrowserModule,
@@ -56,9 +60,11 @@ import { AccountCardComponent } from "./info/account-card/account-card.component
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [HaveList]
 })
 export class AppModule {}

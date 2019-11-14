@@ -1,1 +1,8 @@
-<p>lists works!</p>
+<main>
+  <ng-container *ngFor="let i of myLists">
+    <app-list></app-list>
+  </ng-container>
+  <mat-card>
+    <button mat-icon-button (click)="createList()" class="addButton">+</button>
+  </mat-card>
+</main>
