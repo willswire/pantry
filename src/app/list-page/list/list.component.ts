@@ -1,9 +1,6 @@
 import { Component, OnInit, Inject, ComponentRef } from "@angular/core";
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA
-} from "@angular/material/dialog";
+import { MatDialog } from "@angular/material/dialog";
+import { HaveComponent } from "./have/have.component";
 
 @Component({
   selector: "app-list",
@@ -23,7 +20,7 @@ export class ListComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   openHaveList(): void {
-    const dialogRef = this.dialog.open(HaveList, {
+    const dialogRef = this.dialog.open(HaveComponent, {
       width: "400px"
     });
 
@@ -39,50 +36,5 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.heroImage =
       "assets/" + Math.ceil(Math.random() * 7) + "_listimage.png";
-  }
-}
-
-@Component({
-  selector: "have-list",
-  templateUrl: "list.have.html"
-})
-export class HaveList {
-  items: Object[] = [
-    {
-      name: "Steak",
-      expires: new Date(Date.now()),
-      icon: "outdoor_grill"
-    },
-    {
-      name: "Cake",
-      expires: new Date(Date.now()),
-      icon: "cake"
-    },
-    {
-      name: "Coffee",
-      expires: new Date(Date.now()),
-      icon: "free_breakfast"
-    },
-    {
-      name: "Steak",
-      expires: new Date(Date.now()),
-      icon: "outdoor_grill"
-    },
-    {
-      name: "Spinach",
-      expires: new Date(Date.now()),
-      icon: "eco"
-    }
-  ];
-
-  constructor(
-    public dialogRef: MatDialogRef<HaveList>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    this.items;
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
 }

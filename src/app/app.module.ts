@@ -27,7 +27,8 @@ import { HomeComponent } from "./home/home.component";
 import { ListPageComponent } from "./list-page/list-page.component";
 import { SettingsCardComponent } from "./info/settings-card/settings-card.component";
 import { AccountCardComponent } from "./info/account-card/account-card.component";
-import { ListComponent, HaveList } from "./list-page/list/list.component";
+import { ListComponent } from "./list-page/list/list.component";
+import { HaveComponent } from "./list-page/list/have/have.component";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ListComponent, HaveList } from "./list-page/list/list.component";
     SettingsCardComponent,
     AccountCardComponent,
     ListComponent,
-    HaveList
+    HaveComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +66,6 @@ import { ListComponent, HaveList } from "./list-page/list/list.component";
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ListComponent, HaveList]
+  entryComponents: [ListComponent, HaveComponent]
 })
 export class AppModule {}
