@@ -4,18 +4,22 @@
     <mat-card-title>My New List</mat-card-title>
     <mat-card-subtitle>Not Shared</mat-card-subtitle>
     <span class="list-header-spacer"></span>
-    <mat-icon
-      class="list-mark-icon"
-      aria-hidden="false"
-      aria-label="Example heart icon"
-      >favorite</mat-icon
-    >
-    <mat-icon
-      class="list-mark-icon"
-      aria-hidden="false"
-      aria-label="Example delete icon"
-      >edit</mat-icon
-    >
+    <button mat-icon-button (click)="favoriteList()">
+      <mat-icon
+        class="list-mark-icon"
+        aria-hidden="false"
+        aria-label="Example heart icon"
+        >favorite</mat-icon
+      >
+    </button>
+    <button mat-icon-button (click)="editList()">
+      <mat-icon
+        class="list-mark-icon"
+        aria-hidden="false"
+        aria-label="Example delete icon"
+        >edit</mat-icon
+      >
+    </button>
     <button mat-icon-button (click)="deleteList()">
       <mat-icon
         class="list-mark-icon"
