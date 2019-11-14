@@ -16,12 +16,14 @@
       aria-label="Example delete icon"
       >edit</mat-icon
     >
-    <mat-icon
-      class="list-mark-icon"
-      aria-hidden="false"
-      aria-label="Example delete icon"
-      >delete</mat-icon
-    >
+    <button mat-icon-button (click)="deleteList()">
+      <mat-icon
+        class="list-mark-icon"
+        aria-hidden="false"
+        aria-label="Example delete icon"
+        >delete</mat-icon
+      >
+    </button>
   </mat-card-header>
   <img mat-card-image src="{{ heroImage }}" />
   <mat-card-actions>

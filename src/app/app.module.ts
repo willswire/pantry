@@ -65,6 +65,6 @@ import { ListComponent, HaveList } from "./lists/list/list.component";
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [HaveList]
+  entryComponents: [ListComponent, HaveList]
 })
 export class AppModule {}

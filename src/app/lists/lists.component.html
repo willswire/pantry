@@ -1,7 +1,5 @@
 <main>
-  <ng-container *ngFor="let i of myLists">
-    <app-list></app-list>
-  </ng-container>
+  <ng-template #listContainer></ng-template>
   <mat-card>
     <button mat-icon-button (click)="createList()" class="addButton">+</button>
   </mat-card>

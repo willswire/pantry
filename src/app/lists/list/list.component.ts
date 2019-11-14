@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from "@angular/core";
+import { Component, OnInit, Inject, ComponentRef } from "@angular/core";
 import {
   MatDialog,
   MatDialogRef,
@@ -18,6 +18,7 @@ export class ListComponent implements OnInit {
     "assets/4_listimage.png"
   ];
   heroImage: string;
+  viewRef: ComponentRef<ListComponent>;
 
   constructor(public dialog: MatDialog) {}
 
@@ -29,6 +30,10 @@ export class ListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log("The dialog was closed");
     });
+  }
+
+  deleteList() {
+    this.viewRef.destroy();
   }
 
   ngOnInit() {
