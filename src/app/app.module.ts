@@ -29,6 +29,8 @@ import { SettingsCardComponent } from "./info/settings-card/settings-card.compon
 import { AccountCardComponent } from "./info/account-card/account-card.component";
 import { ListComponent } from "./list-page/list/list.component";
 import { HaveComponent } from "./list-page/list/have/have.component";
+import { NeedComponent } from "./list-page/list/need/need.component";
+import { EditComponent } from "./list-page/list/edit/edit.component";
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { HaveComponent } from "./list-page/list/have/have.component";
     SettingsCardComponent,
     AccountCardComponent,
     ListComponent,
-    HaveComponent
+    HaveComponent,
+    NeedComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +70,6 @@ import { HaveComponent } from "./list-page/list/have/have.component";
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ListComponent, HaveComponent]
+  entryComponents: [ListComponent, HaveComponent, NeedComponent, EditComponent]
 })
 export class AppModule {}

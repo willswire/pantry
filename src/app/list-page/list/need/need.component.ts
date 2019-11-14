@@ -2,26 +2,26 @@ import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 
 @Component({
-  selector: "app-have",
-  templateUrl: "./have.component.html",
-  styleUrls: ["./have.component.css"]
+  selector: "app-need",
+  templateUrl: "./need.component.html",
+  styleUrls: ["./need.component.css"]
 })
-export class HaveComponent implements OnInit {
+export class NeedComponent implements OnInit {
   items: Object[] = [
     {
-      name: "Steak",
+      name: "Cake",
       expires: new Date(Date.now()),
-      icon: "outdoor_grill"
+      icon: "cake"
     },
     {
-      name: "Spinach",
+      name: "Coffee",
       expires: new Date(Date.now()),
-      icon: "eco"
+      icon: "free_breakfast"
     }
   ];
 
   constructor(
-    public dialogRef: MatDialogRef<HaveComponent>,
+    public dialogRef: MatDialogRef<NeedComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.items;

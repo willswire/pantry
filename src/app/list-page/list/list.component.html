@@ -1,7 +1,7 @@
 <mat-card class="listCard">
   <mat-card-header>
     <div mat-card-avatar class="user-image"></div>
-    <mat-card-title>My New List</mat-card-title>
+    <mat-card-title>{{ listName }}</mat-card-title>
     <mat-card-subtitle>Not Shared</mat-card-subtitle>
     <span class="list-header-spacer"></span>
     <button mat-icon-button (click)="favoriteList()">
@@ -29,9 +29,9 @@
       >
     </button>
   </mat-card-header>
-  <img mat-card-image src="{{ heroImage }}" />
+  <img mat-card-image src="{{ cardImage }}" />
   <mat-card-actions>
-    <button mat-button (click)="openHaveList()">HAVE</button>
-    <button mat-button>NEED</button>
+    <button mat-button (click)="openHaveComponent()">HAVE</button>
+    <button mat-button (click)="openNeedComponent()">NEED</button>
   </mat-card-actions>
 </mat-card>

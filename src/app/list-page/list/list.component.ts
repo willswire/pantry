@@ -1,6 +1,9 @@
 import { Component, OnInit, Inject, ComponentRef } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { HaveComponent } from "./have/have.component";
+import { NeedComponent } from "./need/need.component";
+import { EditComponent } from "./edit/edit.component";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-list",
@@ -9,12 +12,35 @@ import { HaveComponent } from "./have/have.component";
 })
 export class ListComponent implements OnInit {
   cardImage: string;
+  listName: string = "My New List";
   viewRef: ComponentRef<ListComponent>;
 
   constructor(public dialog: MatDialog) {}
 
-  openHaveList(): void {
+  editList() {
+    const dialogRef = this.dialog.open(EditComponent, {
+      width: "400px",
+      data: { listName: this.listName }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("The dialog was closed");
+      if (result) this.listName = result;
+    });
+  }
+
+  openHaveComponent() {
     const dialogRef = this.dialog.open(HaveComponent, {
+      width: "400px"
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("The dialog was closed");
+    });
+  }
+
+  openNeedComponent() {
+    const dialogRef = this.dialog.open(NeedComponent, {
       width: "400px"
     });
 
@@ -29,6 +55,8 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.cardImage =
-      "assets/" + Math.ceil(Math.random() * 7) + "_listimage.png";
+      "assets/" +
+      Math.ceil(Math.random() * environment.numberOfListImages) +
+      "_listimage.png";
   }
 }
