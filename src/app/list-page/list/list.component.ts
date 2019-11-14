@@ -8,13 +8,7 @@ import { HaveComponent } from "./have/have.component";
   styleUrls: ["./list.component.css"]
 })
 export class ListComponent implements OnInit {
-  heroImages: string[] = [
-    "assets/1_listimage.png",
-    "assets/2_listimage.png",
-    "assets/3_listimage.png",
-    "assets/4_listimage.png"
-  ];
-  heroImage: string;
+  cardImage: string;
   viewRef: ComponentRef<ListComponent>;
 
   constructor(public dialog: MatDialog) {}
@@ -34,7 +28,7 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroImage =
+    this.cardImage =
       "assets/" + Math.ceil(Math.random() * 7) + "_listimage.png";
   }
 }
