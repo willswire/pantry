@@ -9,11 +9,10 @@ import { ListComponent } from "./list/list.component";
 
 @Component({
   selector: "app-lists",
-  templateUrl: "./lists.component.html",
-  styleUrls: ["./lists.component.css"]
+  templateUrl: "./list-page.component.html",
+  styleUrls: ["./list-page.component.css"]
 })
-export class ListsComponent implements OnInit {
-  //myLists: ListComponent[] = [];
+export class ListPageComponent implements OnInit {
   componentRef: any;
 
   @ViewChild("listContainer", { static: true, read: ViewContainerRef })

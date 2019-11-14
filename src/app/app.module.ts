@@ -24,10 +24,10 @@ import { NavigationComponent } from "./navigation/navigation.component";
 import { UserCardComponent } from "./info/user-card/user-card.component";
 import { InfoComponent } from "./info/info.component";
 import { HomeComponent } from "./home/home.component";
-import { ListsComponent } from "./lists/lists.component";
+import { ListPageComponent } from "./list-page/list-page.component";
 import { SettingsCardComponent } from "./info/settings-card/settings-card.component";
 import { AccountCardComponent } from "./info/account-card/account-card.component";
-import { ListComponent, HaveList } from "./lists/list/list.component";
+import { ListComponent, HaveList } from "./list-page/list/list.component";
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { ListComponent, HaveList } from "./lists/list/list.component";
     UserCardComponent,
     InfoComponent,
     HomeComponent,
-    ListsComponent,
+    ListPageComponent,
     SettingsCardComponent,
     AccountCardComponent,
     ListComponent,
