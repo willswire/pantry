@@ -1,8 +1,8 @@
 {
-  "name": "pantry",
-  "short_name": "pantry",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Pantry",
+  "short_name": "Pantry",
+  "theme_color": "#212121",
+  "background_color": "#dcdcdc",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
