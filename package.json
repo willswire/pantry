@@ -4,9 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "prod": "ng build --prod",
-    "deploy": "ng deploy --repo=https://github.com/willswire/pantry.git --name=\"willswire\" --email=wwalker@udel.edu",
+    "build": "ng build --prod",
+    "deploy": "ng deploy --base-href=/pantry/ --repo=https://github.com/willswire/pantry.git --name=\"willswire\" --email=wwalker@udel.edu",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
