@@ -20,13 +20,8 @@ export class ListComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   favoriteList() {
-    if (this.favorite) {
-      this.heartColor = "white";
-      this.favorite = false;
-    } else {
-      this.heartColor = "warn";
-      this.favorite = true;
-    }
+    this.favorite ? (this.heartColor = "white") : (this.heartColor = "warn");
+    this.favorite = !this.favorite;
   }
 
   editList() {
@@ -36,7 +31,6 @@ export class ListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed");
       if (result) this.listName = result;
     });
   }
@@ -46,9 +40,7 @@ export class ListComponent implements OnInit {
       width: "400px"
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed");
-    });
+    dialogRef.afterClosed().subscribe(result => {});
   }
 
   openNeedComponent() {
@@ -56,19 +48,21 @@ export class ListComponent implements OnInit {
       width: "400px"
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed");
-    });
+    dialogRef.afterClosed().subscribe(result => {});
   }
 
   deleteList() {
     this.viewRef.destroy();
   }
 
-  ngOnInit() {
+  setListImage() {
     this.cardImage =
       "assets/" +
       Math.ceil(Math.random() * environment.numberOfListImages) +
       "_listimage.png";
+  }
+
+  ngOnInit() {
+    this.setListImage();
   }
 }
