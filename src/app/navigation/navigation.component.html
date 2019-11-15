@@ -2,12 +2,7 @@
   <span>{{ _title }}</span>
   <span class="logo-padding"></span>
   <button mat-button routerLink="/">Home</button>
-  <button mat-button [matMenuTriggerFor]="listMenu">My Lists</button>
-  <mat-menu #listMenu="matMenu">
-    <button mat-menu-item routerLink="/lists/had">Items I Had</button>
-    <button mat-menu-item routerLink="/lists/have">Items I Have</button>
-    <button mat-menu-item routerLink="/lists/want">Items I Want</button>
-  </mat-menu>
+  <button mat-button routerLink="/lists/">Lists</button>
   <span class="navigation-padding"></span>
   <button mat-icon-button aria-label="my account" routerLink="/info">
     <mat-icon>person</mat-icon>

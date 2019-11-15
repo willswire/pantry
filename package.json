@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "prod": "ng build --prod --deploy-url=/~wwalker/pantry/ --base-href=/~wwalker/pantry/",
+    "build": "ng build --prod",
+    "deploy": "ng deploy --base-href=/pantry/ --repo=https://github.com/willswire/pantry.git --name=\"willswire\" --email=wwalker@udel.edu",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -24,6 +24,7 @@
     "@angular/pwa": "^0.803.18",
     "@angular/router": "~8.2.8",
     "@angular/service-worker": "~8.2.8",
+    "angular-cli-ghpages": "^0.6.0",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

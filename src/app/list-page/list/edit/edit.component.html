@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Edit Your List</h1>
+<div mat-dialog-content>
+  <p>What's your list's name?</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.listName" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.listName" cdkFocusInitial>
+    Save
+  </button>
+</div>
