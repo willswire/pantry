@@ -14,8 +14,20 @@ export class ListComponent implements OnInit {
   cardImage: string;
   listName: string = "My New List";
   viewRef: ComponentRef<ListComponent>;
+  favorite: boolean = false;
+  heartColor: string;
 
   constructor(public dialog: MatDialog) {}
+
+  favoriteList() {
+    if (this.favorite) {
+      this.heartColor = "white";
+      this.favorite = false;
+    } else {
+      this.heartColor = "warn";
+      this.favorite = true;
+    }
+  }
 
   editList() {
     const dialogRef = this.dialog.open(EditComponent, {

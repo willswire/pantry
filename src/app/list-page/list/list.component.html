@@ -4,7 +4,7 @@
     <mat-card-title>{{ listName }}</mat-card-title>
     <mat-card-subtitle>Not Shared</mat-card-subtitle>
     <span class="list-header-spacer"></span>
-    <button mat-icon-button (click)="favoriteList()">
+    <button mat-icon-button [color]="heartColor" (click)="favoriteList()">
       <mat-icon
         class="list-mark-icon"
         aria-hidden="false"
