@@ -30,6 +30,8 @@ import { WantComponent } from "./lists/want/want.component";
 import { SettingsCardComponent } from "./info/settings-card/settings-card.component";
 import { AccountCardComponent } from "./info/account-card/account-card.component";
 
+import { SecurityModule } from './security/security.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +64,8 @@ import { AccountCardComponent } from "./info/account-card/account-card.component
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    SecurityModule
   ],
   providers: [],
   bootstrap: [AppComponent]
