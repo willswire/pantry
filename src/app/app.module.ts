@@ -32,6 +32,8 @@ import { HaveComponent } from "./list-page/list/have/have.component";
 import { NeedComponent } from "./list-page/list/need/need.component";
 import { EditComponent } from "./list-page/list/edit/edit.component";
 
+import { SecurityModule } from './security/security.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +68,8 @@ import { EditComponent } from "./list-page/list/edit/edit.component";
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    SecurityModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
