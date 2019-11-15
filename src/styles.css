@@ -8,16 +8,22 @@ body {
   background-color: gainsboro;
 }
 
-@media screen and (max-width: 800px) {
-  mat-card {
-    margin: 10px;
-    width: 350px;
-  }
-}
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 700px) {
   mat-card {
     margin: 30px;
     width: 400px;
+  }
+}
+@media screen and (max-width: 700px) and (min-width: 600px) {
+  mat-card {
+    margin: 20px;
+    width: 350px;
+  }
+}
+@media screen and (max-width: 600px) {
+  mat-card {
+    margin: 10px;
+    width: 300px;
   }
 }
 
