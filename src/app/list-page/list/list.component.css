@@ -1,0 +1,9 @@
+.list-header-spacer {
+  flex: 1 1 auto;
+}
+.list-mark-icon {
+  padding: 0 5px;
+}
+.favorite {
+  color: red;
+}

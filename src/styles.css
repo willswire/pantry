@@ -7,7 +7,24 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: gainsboro;
 }
-mat-card {
-  margin: 30px;
-  width: 400px;
+
+@media screen and (max-width: 800px) {
+  mat-card {
+    margin: 10px;
+    width: 350px;
+  }
+}
+@media screen and (min-width: 800px) {
+  mat-card {
+    margin: 30px;
+    width: 400px;
+  }
+}
+
+.user-image {
+  background-image: url("https://i0.wp.com/www.cis.udel.edu/wp-content/uploads/formidable/10/Silber-1-1.jpg?zoom=2&resize=150%2C150");
+  background-size: cover;
+}
+.white-icon {
+  color: white;
 }
