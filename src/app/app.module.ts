@@ -28,43 +28,45 @@ import { ListsComponent } from "./lists/lists.component";
 import { SettingsCardComponent } from "./info/settings-card/settings-card.component";
 import { AccountCardComponent } from "./info/account-card/account-card.component";
 import { ListComponent, HaveList } from "./lists/list/list.component";
+import { ItemsComponent } from "./items/items.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent,
-    UserCardComponent,
-    InfoComponent,
-    HomeComponent,
-    ListsComponent,
-    SettingsCardComponent,
-    AccountCardComponent,
-    ListComponent,
-    HaveList
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatIconModule,
-    MatCardModule,
-    MatButtonModule,
-    MatGridListModule,
-    MatListModule,
-    MatRadioModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDialogModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [HaveList]
+	declarations: [
+		AppComponent,
+		NavigationComponent,
+		UserCardComponent,
+		InfoComponent,
+		HomeComponent,
+		ListsComponent,
+		SettingsCardComponent,
+		AccountCardComponent,
+		ListComponent,
+		HaveList,
+		ItemsComponent,
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		BrowserAnimationsModule,
+		MatToolbarModule,
+		MatMenuModule,
+		MatIconModule,
+		MatCardModule,
+		MatButtonModule,
+		MatGridListModule,
+		MatListModule,
+		MatRadioModule,
+		MatFormFieldModule,
+		MatSelectModule,
+		MatCheckboxModule,
+		FormsModule,
+		ReactiveFormsModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatDialogModule
+	],
+	providers: [],
+	bootstrap: [AppComponent],
+	entryComponents: [HaveList]
 })
 export class AppModule {}

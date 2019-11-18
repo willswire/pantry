@@ -1,0 +1,9 @@
+.info {
+	margin: 10px;
+}
+
+.item-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
