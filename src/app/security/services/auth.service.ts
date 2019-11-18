@@ -29,7 +29,6 @@ export class AuthService {
     .pipe(
       map((user: any) => {
         this._userSvc.setUser(user);
-        this.router.navigate(['landing-page']);
         return user;
       })
     );
@@ -37,7 +36,6 @@ export class AuthService {
 
   public logout() {
     this._userSvc.removeUser();
-    this.router.navigate(['sign-in']);
   }
 
   public register(
@@ -60,7 +58,6 @@ export class AuthService {
     .pipe(
       map((user: any) => {
         this._userSvc.setUser(user);
-        this.router.navigate(['landing-page']);
         return user;
       })
     );
