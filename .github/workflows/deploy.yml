@@ -1,23 +1,25 @@
-name: Test
+name: Deploy
 
 on:
   pull_request:
+    types: [closed]
     branches:
       - master
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: checkout
+        if: github.event.pull_request.merged
         uses: actions/setup-node@v1
         with:
           node-version: "10.x"
-      - name: npm build
+          ref: master
+      - name: npm deploy
         run: |
           npm install
-          npm run build
+          npm run deploy
         env:
           CI: true
