@@ -2,10 +2,10 @@
 <div mat-dialog-content>
   <mat-list>
     <mat-list-item *ngFor="let item of items">
-      <mat-icon matListIcon class="white-icon">{{item.icon}}</mat-icon>
-      <h3 matLine>{{item.name}}</h3>
+      <mat-icon matListIcon class="white-icon">{{ item.icon }}</mat-icon>
+      <h3 matLine>{{ item.name }}</h3>
       <p matLine>
-        <span>{{item.expires | date}}</span>
+        <span>{{ item.expires | date }}</span>
       </p>
     </mat-list-item>
   </mat-list>

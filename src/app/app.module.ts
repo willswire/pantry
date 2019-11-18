@@ -24,11 +24,17 @@ import { NavigationComponent } from "./navigation/navigation.component";
 import { UserCardComponent } from "./info/user-card/user-card.component";
 import { InfoComponent } from "./info/info.component";
 import { HomeComponent } from "./home/home.component";
-import { ListsComponent } from "./lists/lists.component";
+import { ListPageComponent } from "./list-page/list-page.component";
 import { SettingsCardComponent } from "./info/settings-card/settings-card.component";
 import { AccountCardComponent } from "./info/account-card/account-card.component";
-import { ListComponent, HaveList } from "./lists/list/list.component";
-import { ItemsComponent } from "./items/items.component";
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { environment } from "../environments/environment";
+import { ListComponent } from "./list-page/list/list.component";
+import { HaveComponent } from "./list-page/list/have/have.component";
+import { NeedComponent } from "./list-page/list/need/need.component";
+import { EditComponent } from "./list-page/list/edit/edit.component";
+
+import { SecurityModule } from "./security/security.module";
 
 @NgModule({
 	declarations: [
@@ -37,12 +43,13 @@ import { ItemsComponent } from "./items/items.component";
 		UserCardComponent,
 		InfoComponent,
 		HomeComponent,
-		ListsComponent,
+		ListPageComponent,
 		SettingsCardComponent,
 		AccountCardComponent,
 		ListComponent,
-		HaveList,
-		ItemsComponent,
+		HaveComponent,
+		NeedComponent,
+		EditComponent
 	],
 	imports: [
 		BrowserModule,
@@ -63,10 +70,19 @@ import { ItemsComponent } from "./items/items.component";
 		ReactiveFormsModule,
 		MatFormFieldModule,
 		MatInputModule,
+		ServiceWorkerModule.register("ngsw-worker.js", {
+			enabled: environment.production
+		}),
+		SecurityModule,
 		MatDialogModule
 	],
 	providers: [],
 	bootstrap: [AppComponent],
-	entryComponents: [HaveList]
+	entryComponents: [
+		ListComponent,
+		HaveComponent,
+		NeedComponent,
+		EditComponent
+	]
 })
 export class AppModule {}
