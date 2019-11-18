@@ -5,7 +5,7 @@
   "background_color": "#dcdcdc",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/pantry/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
