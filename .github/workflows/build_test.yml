@@ -11,11 +11,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Set Node.js Version
         uses: actions/setup-node@v1
         with:
           node-version: "10.x"
-      - name: npm build
+      - name: Instal & Build
         run: |
           npm install
           npm run build

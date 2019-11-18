@@ -11,13 +11,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout
+      - uses: actions/checkout@v1
+      - name: Checkout
+        if: github.event.pull_request.merged
+        with:
+          ref: master
+      - name: Set Node.js Version
         if: github.event.pull_request.merged
         uses: actions/setup-node@v1
         with:
           node-version: "10.x"
-          ref: master
-      - name: npm deploy
+      - name: Install & Deploy
+        if: github.event.pull_request.merged
         run: |
           npm install
           npm run deploy
