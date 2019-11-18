@@ -22,7 +22,6 @@ jobs:
         with:
           node-version: "10.x"
       - name: Install & Deploy
-        uses: actions/setup-node@v1
         if: github.event.pull_request.merged
         run: |
           npm install
