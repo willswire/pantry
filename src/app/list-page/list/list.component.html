@@ -3,6 +3,11 @@
     <div mat-card-avatar class="user-image"></div>
     <mat-card-title>{{ listName }}</mat-card-title>
     <mat-card-subtitle>Not Shared</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{ cardImage }}" />
+  <mat-card-actions align="end">
+    <button mat-button (click)="openHaveComponent()">HAVE</button>
+    <button mat-button (click)="openNeedComponent()">NEED</button>
     <span class="list-header-spacer"></span>
     <button mat-icon-button [color]="heartColor" (click)="favoriteList()">
       <mat-icon
@@ -28,10 +33,5 @@
         >delete</mat-icon
       >
     </button>
-  </mat-card-header>
-  <img mat-card-image src="{{ cardImage }}" />
-  <mat-card-actions>
-    <button mat-button (click)="openHaveComponent()">HAVE</button>
-    <button mat-button (click)="openNeedComponent()">NEED</button>
   </mat-card-actions>
 </mat-card>
