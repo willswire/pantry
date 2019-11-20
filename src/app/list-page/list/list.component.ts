@@ -16,10 +16,9 @@ export class ListComponent implements OnInit {
   viewRef: ComponentRef<ListComponent>;
   favorite: boolean = false;
   heartColor: string;
-  dialog: MatDialog;
   listRef: any;
 
-  constructor(private api: ListService) {
+  constructor(private dialog: MatDialog, private api: ListService) {
     this.api.createList("My New List").subscribe(result => {
       this.listRef = result;
       console.log("The new component has a listref of: " + this.listRef);
@@ -51,7 +50,10 @@ export class ListComponent implements OnInit {
   }
 
   deleteList() {
-    this.viewRef.destroy();
+    this.api.deleteList(this.listRef).subscribe(result => {
+      console.log(result);
+      this.viewRef.destroy();
+    });
   }
 
   setListImage() {
