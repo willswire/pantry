@@ -19,12 +19,14 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatInputModule } from "@angular/material";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatExpansionModule } from "@angular/material/expansion";
 
 import { NavigationComponent } from "./navigation/navigation.component";
 import { UserCardComponent } from "./info/user-card/user-card.component";
 import { InfoComponent } from "./info/info.component";
 import { HomeComponent } from "./home/home.component";
 import { ListPageComponent } from "./list-page/list-page.component";
+import { ItemsComponent } from "./items/items.component";
 import { SettingsCardComponent } from "./info/settings-card/settings-card.component";
 import { AccountCardComponent } from "./info/account-card/account-card.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
@@ -47,6 +49,7 @@ import { SecurityModule } from "./security/security.module";
 		SettingsCardComponent,
 		AccountCardComponent,
 		ListComponent,
+		ItemsComponent,
 		HaveComponent,
 		NeedComponent,
 		EditComponent
@@ -74,7 +77,8 @@ import { SecurityModule } from "./security/security.module";
 			enabled: environment.production
 		}),
 		SecurityModule,
-		MatDialogModule
+		MatDialogModule,
+		MatExpansionModule
 	],
 	providers: [],
 	bootstrap: [AppComponent],
