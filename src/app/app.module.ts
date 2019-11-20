@@ -19,12 +19,14 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatInputModule } from "@angular/material";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatExpansionModule } from "@angular/material/expansion";
 
 import { NavigationComponent } from "./navigation/navigation.component";
 import { UserCardComponent } from "./info/user-card/user-card.component";
 import { InfoComponent } from "./info/info.component";
 import { HomeComponent } from "./home/home.component";
 import { ListPageComponent } from "./list-page/list-page.component";
+import { ItemsComponent } from "./items/items.component";
 import { SettingsCardComponent } from "./info/settings-card/settings-card.component";
 import { AccountCardComponent } from "./info/account-card/account-card.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
@@ -37,47 +39,54 @@ import { EditComponent } from "./list-page/list/edit/edit.component";
 import { SecurityModule } from "./security/security.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent,
-    UserCardComponent,
-    InfoComponent,
-    HomeComponent,
-    ListPageComponent,
-    SettingsCardComponent,
-    AccountCardComponent,
-    ListComponent,
-    HaveComponent,
-    NeedComponent,
-    EditComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatIconModule,
-    MatCardModule,
-    MatButtonModule,
-    MatGridListModule,
-    MatListModule,
-    MatRadioModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ServiceWorkerModule.register("ngsw-worker.js", {
-      enabled: environment.production
-    }),
-    SecurityModule,
-    MatDialogModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [ListComponent, HaveComponent, NeedComponent, EditComponent]
+	declarations: [
+		AppComponent,
+		NavigationComponent,
+		UserCardComponent,
+		InfoComponent,
+		HomeComponent,
+		ListPageComponent,
+		SettingsCardComponent,
+		AccountCardComponent,
+		ListComponent,
+		ItemsComponent,
+		HaveComponent,
+		NeedComponent,
+		EditComponent
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		BrowserAnimationsModule,
+		MatToolbarModule,
+		MatMenuModule,
+		MatIconModule,
+		MatCardModule,
+		MatButtonModule,
+		MatGridListModule,
+		MatListModule,
+		MatRadioModule,
+		MatFormFieldModule,
+		MatSelectModule,
+		MatCheckboxModule,
+		FormsModule,
+		ReactiveFormsModule,
+		MatFormFieldModule,
+		MatInputModule,
+		ServiceWorkerModule.register("ngsw-worker.js", {
+			enabled: environment.production
+		}),
+		SecurityModule,
+		MatDialogModule,
+		MatExpansionModule
+	],
+	providers: [],
+	bootstrap: [AppComponent],
+	entryComponents: [
+		ListComponent,
+		HaveComponent,
+		NeedComponent,
+		EditComponent
+	]
 })
 export class AppModule {}
