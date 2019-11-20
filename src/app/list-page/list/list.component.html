@@ -6,8 +6,6 @@
   </mat-card-header>
   <img mat-card-image src="{{ cardImage }}" />
   <mat-card-actions align="end">
-    <button mat-button (click)="openNeedComponent()">OPEN LIST</button>
-    <span class="list-header-spacer"></span>
     <button mat-icon-button [color]="heartColor" (click)="favoriteList()">
       <mat-icon
         class="list-mark-icon"
@@ -32,5 +30,7 @@
         >delete</mat-icon
       >
     </button>
+    <span class="list-header-spacer"></span>
+    <button mat-button (click)="openNeedComponent()">OPEN LIST</button>
   </mat-card-actions>
 </mat-card>

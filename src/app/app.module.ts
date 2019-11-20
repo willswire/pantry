@@ -24,7 +24,6 @@ import { MatExpansionModule } from "@angular/material/expansion";
 import { NavigationComponent } from "./navigation/navigation.component";
 import { UserCardComponent } from "./info/user-card/user-card.component";
 import { InfoComponent } from "./info/info.component";
-import { HomeComponent } from "./home/home.component";
 import { ListPageComponent } from "./list-page/list-page.component";
 import { ItemsComponent } from "./items/items.component";
 import { SettingsCardComponent } from "./info/settings-card/settings-card.component";
@@ -43,7 +42,6 @@ import { SecurityModule } from "./security/security.module";
     NavigationComponent,
     UserCardComponent,
     InfoComponent,
-    HomeComponent,
     ListPageComponent,
     SettingsCardComponent,
     AccountCardComponent,
