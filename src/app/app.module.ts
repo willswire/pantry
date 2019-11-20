@@ -27,12 +27,14 @@ import { HomeComponent } from "./home/home.component";
 import { ListPageComponent } from "./list-page/list-page.component";
 import { SettingsCardComponent } from "./info/settings-card/settings-card.component";
 import { AccountCardComponent } from "./info/account-card/account-card.component";
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { environment } from "../environments/environment";
 import { ListComponent } from "./list-page/list/list.component";
 import { HaveComponent } from "./list-page/list/have/have.component";
 import { NeedComponent } from "./list-page/list/need/need.component";
 import { EditComponent } from "./list-page/list/edit/edit.component";
 
-import { SecurityModule } from './security/security.module';
+import { SecurityModule } from "./security/security.module";
 
 @NgModule({
   declarations: [
@@ -68,8 +70,11 @@ import { SecurityModule } from './security/security.module';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    ServiceWorkerModule.register("ngsw-worker.js", {
+      enabled: environment.production
+    }),
     SecurityModule,
-    MatDialogModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
