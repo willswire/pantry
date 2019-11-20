@@ -4,7 +4,7 @@ import { ReplaySubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserStorageService {
+export class UserService {
 
   status: ReplaySubject<boolean> = new ReplaySubject<boolean>();
 

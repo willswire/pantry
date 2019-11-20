@@ -32,5 +32,10 @@
         >delete</mat-icon
       >
     </button>
+  </mat-card-header>
+  <img mat-card-image src="{{ cardImage }}" />
+  <mat-card-actions>
+    <button mat-button (click)="openHaveComponent()">HAVE</button>
+    <button mat-button (click)="openNeedComponent()">NEED</button>
   </mat-card-actions>
 </mat-card>
