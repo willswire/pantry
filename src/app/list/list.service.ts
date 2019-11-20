@@ -13,39 +13,42 @@ export class ListService {
   constructor(private _http: HttpClient) {}
 
   public createList(title: String) {
-    return this._http.post(
-      `http://localhost:3000/api/lists/`,
-      { title: title },
-      { headers: this.headers },
-    )
-    .pipe(
-      map((list: any) => {
-        return list;
-      })
-    );
+    return this._http
+      .post(
+        `https://pantry-api.glitch.me/api/lists/`,
+        { title: title },
+        { headers: this.headers }
+      )
+      .pipe(
+        map((list: any) => {
+          return list;
+        })
+      );
   }
 
   public deleteList(listID: String) {
-    return this._http.delete(
-      `http://localhost:3000/api/lists/${listID}`,
-      { headers: this.headers, observe: 'response', responseType: 'text'  },
-    )
-    .pipe(
-      map((res: any) => {
-        return res;
+    return this._http
+      .delete(`https://pantry-api.glitch.me/api/lists/${listID}`, {
+        headers: this.headers,
+        observe: "response",
+        responseType: "text"
       })
-    );
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
   }
 
   public getListByID(listID: String) {
-    return this._http.get<any>(
-      `http://localhost:3000/api/lists/${listID}`,
-      { headers: this.headers }
-    )
-    .pipe(
-      map((list: any) => {
-        return list;
+    return this._http
+      .get<any>(`https://pantry-api.glitch.me/api/lists/${listID}`, {
+        headers: this.headers
       })
-    );
+      .pipe(
+        map((list: any) => {
+          return list;
+        })
+      );
   }
 }
