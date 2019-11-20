@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root"
@@ -13,39 +14,42 @@ export class ListService {
   constructor(private _http: HttpClient) {}
 
   public createList(title: String) {
-    return this._http.post(
-      `http://localhost:3000/api/lists/`,
-      { title: title },
-      { headers: this.headers },
-    )
-    .pipe(
-      map((list: any) => {
-        return list;
-      })
-    );
+    return this._http
+      .post(
+        environment.API + `/api/lists/`,
+        { title: title },
+        { headers: this.headers }
+      )
+      .pipe(
+        map((list: any) => {
+          return list;
+        })
+      );
   }
 
   public deleteList(listID: String) {
-    return this._http.delete(
-      `http://localhost:3000/api/lists/${listID}`,
-      { headers: this.headers, observe: 'response', responseType: 'text'  },
-    )
-    .pipe(
-      map((res: any) => {
-        return res;
+    return this._http
+      .delete(environment.API + `/api/lists/${listID}`, {
+        headers: this.headers,
+        observe: "response",
+        responseType: "text"
       })
-    );
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
   }
 
   public getListByID(listID: String) {
-    return this._http.get<any>(
-      `http://localhost:3000/api/lists/${listID}`,
-      { headers: this.headers }
-    )
-    .pipe(
-      map((list: any) => {
-        return list;
+    return this._http
+      .get<any>(environment.API + `/api/lists/${listID}`, {
+        headers: this.headers
       })
-    );
+      .pipe(
+        map((list: any) => {
+          return list;
+        })
+      );
   }
 }
