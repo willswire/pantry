@@ -49,7 +49,6 @@ import { SecurityModule } from "./security/security.module";
     AccountCardComponent,
     ListComponent,
     ItemsComponent,
-    HaveComponent,
     NeedComponent,
     EditComponent
   ],
@@ -81,6 +80,6 @@ import { SecurityModule } from "./security/security.module";
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ListComponent, HaveComponent, NeedComponent, EditComponent]
+  entryComponents: [ListComponent, NeedComponent, EditComponent]
 })
 export class AppModule {}
