@@ -1,29 +1,30 @@
-name: Deploy Code
+name: Deploy
 
 on:
   pull_request:
-    branches: 
+    types: [closed]
+    branches:
       - master
 
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
-      run: |
-        npm install
-        npm run build
-        npm run deploy
-      env:
-        CI: true
+      - name: Checkout
+        uses: actions/checkout@v1
+        if: github.event.pull_request.merged
+        with:
+          ref: master
+      - name: Set Node.js Version
+        uses: actions/setup-node@v1
+        if: github.event.pull_request.merged
+        with:
+          node-version: "10.x"
+      - name: Install & Deploy
+        if: github.event.pull_request.merged
+        run: |
+          npm install
+          npm run deploy
+        env:
+          CI: true
