@@ -35,14 +35,6 @@ export class ListComponent implements OnInit {
     });
   }
 
-  openHaveComponent() {
-    const dialogRef = this.dialog.open(HaveComponent, {
-      width: "400px"
-    });
-
-    dialogRef.afterClosed().subscribe(result => {});
-  }
-
   openNeedComponent() {
     const dialogRef = this.dialog.open(NeedComponent, {
       width: "400px"
