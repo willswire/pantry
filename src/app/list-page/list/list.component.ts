@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject, ComponentRef } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
-import { HaveComponent } from "./have/have.component";
 import { NeedComponent } from "./need/need.component";
 import { EditComponent } from "./edit/edit.component";
 import { environment } from "src/environments/environment";
