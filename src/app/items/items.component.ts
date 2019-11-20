@@ -19,4 +19,5 @@ export class ItemsComponent implements OnInit {
 	constructor() {}
 
 	ngOnInit() {}
+
 }
