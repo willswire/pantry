@@ -1,12 +1,9 @@
-<h2 class="info">
-	Select an item from the list below to learn more about it!
-</h2>
-<mat-grid-list cols="2" rowHeight="20:1">
-	<mat-grid-tile>Search Bar</mat-grid-tile>
-	<mat-grid-tile>Category Selector</mat-grid-tile>
-</mat-grid-list>
-
-<mat-grid-list cols="5" rowHeight="2:1">
+<mat-grid-list cols="5" rowHeight="1:1">
+	<mat-grid-tile>
+		<mat-form-field>
+			<input matInput placeholder="Search">
+		</mat-form-field>
+	</mat-grid-tile>
 	<mat-grid-tile *ngFor="let item of items">
 		<mat-expansion-panel>
 			<mat-expansion-panel-header>
@@ -17,6 +14,12 @@
 					<mat-icon>{{ item.icon }}</mat-icon>
 				</mat-panel-description>
 			</mat-expansion-panel-header>
+			<p>Sample Item Information:</p>
+			<p>Sample Information 2:</p>
+			<p>Sample Information 3:</p>
+			<mat-action-row>
+				<button mat-raised-button color="warn">Add</button>
+			</mat-action-row>
 		</mat-expansion-panel>
 	</mat-grid-tile>
 </mat-grid-list>
