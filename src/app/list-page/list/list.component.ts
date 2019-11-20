@@ -3,6 +3,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { NeedComponent } from "./need/need.component";
 import { EditComponent } from "./edit/edit.component";
 import { environment } from "src/environments/environment";
+import { ListService } from "src/app/list/list.service";
 
 @Component({
   selector: "app-list",
@@ -15,8 +16,15 @@ export class ListComponent implements OnInit {
   viewRef: ComponentRef<ListComponent>;
   favorite: boolean = false;
   heartColor: string;
+  dialog: MatDialog;
+  listRef: any;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(private api: ListService) {
+    this.api.createList("My New List").subscribe(result => {
+      this.listRef = result;
+      console.log("The new component has a listref of: " + this.listRef);
+    });
+  }
 
   favoriteList() {
     this.favorite ? (this.heartColor = "white") : (this.heartColor = "warn");

@@ -13,17 +13,11 @@ export class ListService {
   constructor(private _http: HttpClient) {}
 
   public createList(title: String) {
-    return this._http
-      .post(
-        `https://pantry-api.glitch.me/api/lists/`,
-        { title: title },
-        { headers: this.headers }
-      )
-      .pipe(
-        map((list: any) => {
-          return list;
-        })
-      );
+    return this._http.post(
+      `https://pantry-api.glitch.me/api/lists/`,
+      { title: title },
+      { headers: this.headers }
+    );
   }
 
   public deleteList(listID: String) {
