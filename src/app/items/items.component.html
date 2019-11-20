@@ -1,10 +1,10 @@
 <div id="item-grid">
 	<div>
 		<mat-form-field>
-			<input matInput placeholder="Search">
+			<input matInput [(ngModel)]="searchText" placeholder="Search">
 		</mat-form-field>
-	</div>
-	<div *ngFor="let item of items">
+	</mat-grid-tile>
+	<mat-grid-tile *ngFor="let item of items | filter : searchText">
 		<mat-expansion-panel>
 			<mat-expansion-panel-header>
 				<mat-panel-title>
@@ -14,9 +14,7 @@
 					<mat-icon>{{ item.icon }}</mat-icon>
 				</mat-panel-description>
 			</mat-expansion-panel-header>
-			<p>Sample Item Information:</p>
-			<p>Sample Information 2:</p>
-			<p>Sample Information 3:</p>
+			<p>Description:</p>
 			<mat-action-row>
 				<button mat-raised-button color="secondary">Add</button>
 			</mat-action-row>
