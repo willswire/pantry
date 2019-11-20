@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy & Release
 
 on:
   pull_request:
@@ -23,8 +23,9 @@ jobs:
           node-version: "10.x"
       - name: Install & Deploy
         if: github.event.pull_request.merged
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          CI: true
         run: |
           npm install
           npm run deploy
-        env:
-          CI: true

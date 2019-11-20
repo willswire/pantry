@@ -1,16 +1,11 @@
 <mat-card class="example-card">
   <mat-card-subtitle>Close Your Account</mat-card-subtitle>
   <mat-card-content>
-    <p>
-      <mat-checkbox [formControl]="disableSelect"
-        >I want to delete my account and erase all data</mat-checkbox
-      >
-    </p>
     <mat-form-field>
       <mat-label>Choose an option</mat-label>
-      <mat-select [disabled]="disableSelect.value">
+      <mat-select>
         <mat-option value="option1">Delete My Account</mat-option>
-        <mat-option value="option3">Deactivate My Account</mat-option>
+        <mat-option value="option2">Deactivate My Account</mat-option>
       </mat-select>
     </mat-form-field>
   </mat-card-content>
