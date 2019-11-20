@@ -63,8 +63,4 @@ export class AuthService {
     );
   }
 
-  public isLoggedIn() {
-    return localStorage.getItem('user') != null;
-  }
-
 }
