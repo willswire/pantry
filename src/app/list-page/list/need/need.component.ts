@@ -17,6 +17,16 @@ export class NeedComponent implements OnInit {
       name: "Coffee",
       expires: new Date(Date.now()),
       icon: "free_breakfast"
+    },
+    {
+      name: "Steak",
+      expires: new Date(Date.now()),
+      icon: "outdoor_grill"
+    },
+    {
+      name: "Spinach",
+      expires: new Date(Date.now()),
+      icon: "eco"
     }
   ];
 
