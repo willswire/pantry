@@ -1,0 +1,25 @@
+<mat-grid-list cols="5" rowHeight="1:1">
+	<mat-grid-tile>
+		<mat-form-field>
+			<input matInput placeholder="Search">
+		</mat-form-field>
+	</mat-grid-tile>
+	<mat-grid-tile *ngFor="let item of items">
+		<mat-expansion-panel>
+			<mat-expansion-panel-header>
+				<mat-panel-title>
+					{{ item.name }}
+				</mat-panel-title>
+				<mat-panel-description>
+					<mat-icon>{{ item.icon }}</mat-icon>
+				</mat-panel-description>
+			</mat-expansion-panel-header>
+			<p>Sample Item Information:</p>
+			<p>Sample Information 2:</p>
+			<p>Sample Information 3:</p>
+			<mat-action-row>
+				<button mat-raised-button color="secondary">Add</button>
+			</mat-action-row>
+		</mat-expansion-panel>
+	</mat-grid-tile>
+</mat-grid-list>

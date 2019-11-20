@@ -7,7 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
   styleUrls: ["./have.component.css"]
 })
 export class HaveComponent implements OnInit {
-  public _items: Object[] = [
+  items: Object[] = [
     {
       name: "Steak",
       expires: new Date(Date.now()),
@@ -19,13 +19,6 @@ export class HaveComponent implements OnInit {
       icon: "eco"
     }
   ];
-
-  public get items(): Object[] {
-    return this._items;
-  }
-  public set items(value: Object[]) {
-    this._items = value;
-  }
 
   constructor(
     public dialogRef: MatDialogRef<HaveComponent>,

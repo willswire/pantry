@@ -8,6 +8,8 @@ import { FormControl } from "@angular/forms";
   styleUrls: ["./account-card.component.css"]
 })
 export class AccountCardComponent implements OnInit {
+  disableSelect = new FormControl(false);
+
   constructor() {}
 
   ngOnInit() {}

@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  numberOfListImages: 4,
-  API: "https://pantry-api.glitch.me"
+  numberOfListImages: 4
 };
 
 /*
