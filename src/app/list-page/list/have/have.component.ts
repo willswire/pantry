@@ -7,7 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
   styleUrls: ["./have.component.css"]
 })
 export class HaveComponent implements OnInit {
-  private _items: Object[] = [
+  public _items: Object[] = [
     {
       name: "Steak",
       expires: new Date(Date.now()),
