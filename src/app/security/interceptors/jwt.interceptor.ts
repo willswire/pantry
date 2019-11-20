@@ -7,11 +7,11 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { UserService } from '../services/user.service';
+import { UserStorageService } from '../services/user-storage.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-  constructor(private userService: UserService) { }
+  constructor(private userStorageService: UserStorageService) { }
 
   intercept(
     request: HttpRequest<any>,
@@ -19,9 +19,9 @@ export class JwtInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     // add authorization header with jwt token if available
     var isLoggedIn = false;
-    this.userService.status.subscribe((status) => {isLoggedIn = status});
+    this.userStorageService.status.subscribe((status) => {isLoggedIn = status});
     if (isLoggedIn ) {
-      let currentToken = this.userService.getToken();
+      let currentToken = this.userStorageService.getToken();
       request = request.clone({
         setHeaders:{
           Authorization : `${currentToken}`
