@@ -1,7 +1,7 @@
 .logo-padding {
   /* This fills the remaining space, by using flexbox. 
        Every toolbar row uses a flexbox row layout. */
-  flex: 0.25 0.25 auto;
+  flex: 0.1 0.1 auto;
 }
 .navigation-padding {
   /* This fills the remaining space, by using flexbox. 
