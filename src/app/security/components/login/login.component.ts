@@ -7,20 +7,20 @@ import { AuthService } from '../../services/auth.service'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email: string;
+  username: string;
   password: string ;
 
   constructor(private _authSvc: AuthService) { }
 
   loginClick() {
-    this._authSvc.login(this.email, this.password).subscribe(
+    this._authSvc.login(this.username, this.password).subscribe(
       data => console.log(`Data: ${data}`),
       err => console.log(`Error: ${err}`)
     );
   }
 
   ngOnInit() {
-    this.email = this.password = '';
+    this.username = this.password = '';
   }
 
 }

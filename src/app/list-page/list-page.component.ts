@@ -14,13 +14,15 @@ import { ListComponent } from "./list/list.component";
 })
 export class ListPageComponent implements OnInit {
   componentRef: any;
+  userLists: [];
 
   @ViewChild("listContainer", { static: true, read: ViewContainerRef })
   entry: ViewContainerRef;
 
   constructor(private resolver: ComponentFactoryResolver) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   createList() {
     const factory = this.resolver.resolveComponentFactory(ListComponent);

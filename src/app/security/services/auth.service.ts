@@ -19,15 +19,16 @@ export class AuthService {
     private _userSvc: UserService
   ) {}
 
-  public login(email: string, password: string) {
+  public login(username: string, password: string) {
     return this._http
     .post(
-      "http://localhost:3000/api/auth/login",
-      { email: email, password: password },
+      "http://localhost:3001/api/auth/login",
+      { username: username, password: password },
       { headers: this.headers }
     )
     .pipe(
       map((user: any) => {
+        console.log(user);
         this._userSvc.setUser(user);
         return user;
       })
@@ -46,7 +47,7 @@ export class AuthService {
   ) {
     return this._http
     .post(
-      "http://localhost:3000/api/auth/register",
+      "http://localhost:3001/api/auth/register",
       {
         email: email,
         firstName: firstName,
@@ -57,6 +58,7 @@ export class AuthService {
     )
     .pipe(
       map((user: any) => {
+        console.log(user);
         this._userSvc.setUser(user);
         return user;
       })
