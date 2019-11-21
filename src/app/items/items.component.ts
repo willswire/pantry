@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Item } from "./item";
 import { ITEMS } from "./item.list";
 import {
 	MatDialog,
@@ -7,6 +6,7 @@ import {
 	MatExpansionPanelTitle,
 	MatExpansionPanelDescription
 } from "@angular/material";
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
 	selector: "app-items",
@@ -20,4 +20,21 @@ export class ItemsComponent implements OnInit {
 
 	ngOnInit() {}
 
+}
+
+@Pipe({
+    name: 'filter'
+})
+
+export class FilterPipe implements PipeTransform {
+    transform(items: any[], searchText: string): any[] {
+        if(!items) return [];
+        if(!searchText) return items;
+
+        searchText = searchText.toLowerCase();
+
+        return items.filter(it => {
+            return it.name.toLowerCase().includes(searchText);
+        });
+    }
 }
