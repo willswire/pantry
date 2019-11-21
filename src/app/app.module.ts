@@ -33,6 +33,7 @@ import { environment } from "../environments/environment";
 import { ListComponent } from "./list-page/list/list.component";
 import { NeedComponent } from "./list-page/list/need/need.component";
 import { EditComponent } from "./list-page/list/edit/edit.component";
+import { FilterPipe } from './items/items.component';
 
 import { SecurityModule } from "./security/security.module";
 
@@ -48,7 +49,8 @@ import { SecurityModule } from "./security/security.module";
     ListComponent,
     ItemsComponent,
     NeedComponent,
-    EditComponent
+    EditComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
