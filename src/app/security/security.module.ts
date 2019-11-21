@@ -5,7 +5,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms'; // <--- JavaScript import from Angular
-import { MatCardModule, MatFormFieldModule, MatProgressSpinnerModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { MatCardModule, MatFormFieldModule, MatProgressSpinnerModule, MatInputModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule } from '@angular/material';
 
 
 @NgModule({
@@ -18,7 +18,10 @@ import { MatCardModule, MatFormFieldModule, MatProgressSpinnerModule, MatInputMo
     MatFormFieldModule,
     MatProgressSpinnerModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

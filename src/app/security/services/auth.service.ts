@@ -22,7 +22,7 @@ export class AuthService {
   public login(username: string, password: string) {
     return this._http
     .post(
-      "http://localhost:3001/api/auth/login",
+      "http://pantry-security-server.glitch.me/api/auth/login",
       { username: username, password: password },
       { headers: this.headers }
     )
@@ -37,22 +37,25 @@ export class AuthService {
 
   public logout() {
     this._userSvc.removeUser();
+    this.router.navigate(['/']);
   }
 
   public register(
-    email: string,
+    username: string,
     password: string,
-    firstName: string,
-    lastName: string
+    name: string,
+    gender: string,
+    birthday: Date
   ) {
     return this._http
     .post(
-      "http://localhost:3001/api/auth/register",
+      "http://pantry-security-server.glitch.me/api/auth/register",
       {
-        email: email,
-        firstName: firstName,
-        lastName: lastName,
-        password: password
+        username: username,
+        password: password,
+        name: name,
+        gender: gender,
+        birthday: birthday
       },
       { headers: this.headers }
     )
@@ -68,5 +71,5 @@ export class AuthService {
   public isLoggedIn() {
     return localStorage.getItem('user') != null;
   }
-
+  
 }
