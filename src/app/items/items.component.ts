@@ -1,40 +1,39 @@
 import { Component, OnInit } from "@angular/core";
 import { ITEMS } from "./item.list";
 import {
-	MatDialog,
-	MatExpansionPanel,
-	MatExpansionPanelTitle,
-	MatExpansionPanelDescription
+  MatDialog,
+  MatExpansionPanel,
+  MatExpansionPanelTitle,
+  MatExpansionPanelDescription
 } from "@angular/material";
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Component({
-	selector: "app-items",
-	templateUrl: "./items.component.html",
-	styleUrls: ["./items.component.css"]
+  selector: "app-items",
+  templateUrl: "./items.component.html",
+  styleUrls: ["./items.component.css"]
 })
 export class ItemsComponent implements OnInit {
-	items = ITEMS;
+  items = ITEMS;
+  searchText: string;
 
-	constructor() {}
+  constructor() {}
 
-	ngOnInit() {}
-
+  ngOnInit() {}
 }
 
 @Pipe({
-    name: 'filter'
+  name: "filter"
 })
-
 export class FilterPipe implements PipeTransform {
-    transform(items: any[], searchText: string): any[] {
-        if(!items) return [];
-        if(!searchText) return items;
+  transform(items: any[], searchText: string): any[] {
+    if (!items) return [];
+    if (!searchText) return items;
 
-        searchText = searchText.toLowerCase();
+    searchText = searchText.toLowerCase();
 
-        return items.filter(it => {
-            return it.name.toLowerCase().includes(searchText);
-        });
-    }
+    return items.filter(it => {
+      return it.name.toLowerCase().includes(searchText);
+    });
+  }
 }
