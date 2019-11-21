@@ -6,6 +6,7 @@ import {
   ComponentFactoryResolver
 } from "@angular/core";
 import { ListComponent } from "./list/list.component";
+import { UserService } from '../security/services/user.service';
 
 @Component({
   selector: "app-lists",
@@ -19,9 +20,10 @@ export class ListPageComponent implements OnInit {
   @ViewChild("listContainer", { static: true, read: ViewContainerRef })
   entry: ViewContainerRef;
 
-  constructor(private resolver: ComponentFactoryResolver) {}
+  constructor(private resolver: ComponentFactoryResolver, private userService: UserService) {}
 
   ngOnInit() {
+    this.userService.getUsersLists().subscribe(result => console.log(result));
   }
 
   createList() {

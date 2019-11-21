@@ -14,7 +14,7 @@ export class ListService {
 
   public createList(title: String) {
     return this._http.post(
-      `http://localhost:3000/api/lists/`,
+      `http://pantry-api.glitch.me/api/lists/`,
       { title: title },
       { headers: this.headers },
     )
@@ -27,7 +27,7 @@ export class ListService {
 
   public deleteList(listID: String) {
     return this._http.delete(
-      `http://localhost:3000/api/lists/${listID}`,
+      `http://pantry-api.glitch.me/api/lists/${listID}`,
       { headers: this.headers, observe: 'response', responseType: 'text'  },
     )
     .pipe(
@@ -39,7 +39,7 @@ export class ListService {
 
   public getListByID(listID: String) {
     return this._http.get<any>(
-      `http://localhost:3000/api/lists/${listID}`,
+      `http://pantry-api.glitch.me/api/lists/${listID}`,
       { headers: this.headers }
     )
     .pipe(

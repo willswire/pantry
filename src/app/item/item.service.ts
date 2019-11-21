@@ -14,7 +14,7 @@ export class ItemService {
 
   public createItem(name: String) {
     return this._http.post(
-      `http://localhost:3000/api/items/`,
+      `http://pantry-api.glitch.me/api/items/`,
       { name: name },
       { headers: this.headers },
     )
@@ -27,7 +27,7 @@ export class ItemService {
 
   public deleteItem(itemID: String) {
     return this._http.delete(
-      `http://localhost:3000/api/items/${itemID}`,
+      `http://pantry-api.glitch.me/api/items/${itemID}`,
       { headers: this.headers, observe: 'response', responseType: 'text'  },
     )
     .pipe(
@@ -39,7 +39,19 @@ export class ItemService {
 
   public getItemByID(itemID: String) {
     return this._http.get<any>(
-      `http://localhost:3000/api/items/${itemID}`,
+      `http://pantry-api.glitch.me/api/items/${itemID}`,
+      { headers: this.headers }
+    )
+    .pipe(
+      map((item: any) => {
+        return item;
+      })
+    );
+  }
+
+  public getItemByName(name: String) {
+    return this._http.get<any>(
+      `http://pantry-api.glitch.me/api/items/item/${name}`,
       { headers: this.headers }
     )
     .pipe(
