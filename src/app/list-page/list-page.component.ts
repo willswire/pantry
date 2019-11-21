@@ -6,8 +6,7 @@ import {
   ComponentFactoryResolver
 } from "@angular/core";
 import { ListComponent } from "./list/list.component";
-import { ListService } from "../list/list.service";
-import { MatDialog } from "@angular/material";
+import { UserDataService } from "../user-data.service";
 
 @Component({
   selector: "app-lists",
@@ -16,16 +15,34 @@ import { MatDialog } from "@angular/material";
 })
 export class ListPageComponent implements OnInit {
   componentRef: any;
+  myCurrentListRefs: string[] = [];
+  myCurrentLists: ListComponent[] = [];
 
-  @ViewChild("listContainer", { static: true, read: ViewContainerRef })
+  @ViewChild("listContainer", { static: false, read: ViewContainerRef })
   entry: ViewContainerRef;
 
   constructor(
     private resolver: ComponentFactoryResolver,
-    private api: ListService
+    private api: UserDataService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getLists();
+    this.generateLists();
+  }
+
+  getLists() {
+    this.api.getUser("5daf8e7b1c9d44000033bca1").subscribe(data => {
+      this.myCurrentListRefs.push(data.Lists);
+      console.log("The user lists are: " + data.Lists);
+    });
+  }
+
+  generateLists() {
+    for (var myCurrentListRef in this.myCurrentListRefs) {
+      this.myCurrentLists.push(new ListComponent(null, null, myCurrentListRef));
+    }
+  }
 
   createList() {
     const factory = this.resolver.resolveComponentFactory(ListComponent);

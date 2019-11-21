@@ -16,13 +16,24 @@ export class ListComponent implements OnInit {
   viewRef: ComponentRef<ListComponent>;
   favorite: boolean = false;
   heartColor: string;
-  listRef: any;
+  listRef: string;
 
-  constructor(private dialog: MatDialog, private api: ListService) {
-    this.api.createList("My New List").subscribe(result => {
-      this.listRef = result;
-      console.log("The new component has a listref of: " + this.listRef);
-    });
+  constructor(
+    private dialog: MatDialog,
+    private api: ListService,
+    incomingListRef?: string
+  ) {
+    if (incomingListRef === "blank") {
+      this.api.createList("My New List").subscribe(result => {
+        this.listRef = result.toString();
+        console.log("The new component has a listref of: " + this.listRef);
+      });
+    } else {
+      this.listRef = incomingListRef;
+      this.api.getListByID("5dd6d4a65b7e7b00835981b1").subscribe(result => {
+        console.log("Got the following list from the api: " + result);
+      });
+    }
   }
 
   favoriteList() {
