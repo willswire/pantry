@@ -8,7 +8,7 @@
     </p>
     <mat-form-field>
       <mat-label>Choose an option</mat-label>
-      <mat-select [disabled]="disableSelect.value">
+      <mat-select [disabled]="!disableSelect.value">
         <mat-option value="option1">Delete My Account</mat-option>
         <mat-option value="option3">Deactivate My Account</mat-option>
       </mat-select>

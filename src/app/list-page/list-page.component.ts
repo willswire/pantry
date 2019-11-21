@@ -6,6 +6,8 @@ import {
   ComponentFactoryResolver
 } from "@angular/core";
 import { ListComponent } from "./list/list.component";
+import { ListService } from "../list/list.service";
+import { MatDialog } from "@angular/material";
 
 @Component({
   selector: "app-lists",
@@ -18,7 +20,10 @@ export class ListPageComponent implements OnInit {
   @ViewChild("listContainer", { static: true, read: ViewContainerRef })
   entry: ViewContainerRef;
 
-  constructor(private resolver: ComponentFactoryResolver) {}
+  constructor(
+    private resolver: ComponentFactoryResolver,
+    private api: ListService
+  ) {}
 
   ngOnInit() {}
 
