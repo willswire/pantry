@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -21,28 +20,30 @@ export class ListService {
   }
 
   public deleteList(listID: String) {
-    return this._http
-      .delete(`https://pantry-api.glitch.me/api/lists/${listID}`, {
+    return this._http.delete(
+      `https://pantry-api.glitch.me/api/lists/${listID}`,
+      {
         headers: this.headers,
         observe: "response",
         responseType: "text"
-      })
-      .pipe(
-        map((res: any) => {
-          return res;
-        })
-      );
+      }
+    );
   }
 
   public getListByID(listID: String) {
-    return this._http
-      .get<any>(`https://pantry-api.glitch.me/api/lists/${listID}`, {
+    return this._http.get<any>(
+      `https://pantry-api.glitch.me/api/lists/${listID}`,
+      {
         headers: this.headers
-      })
-      .pipe(
-        map((list: any) => {
-          return list;
-        })
-      );
+      }
+    );
+  }
+
+  public updateList(listID: String, title: String) {
+    return this._http.put(
+      `https://pantry-api.glitch.me/api/lists/${listID}`,
+      { title: title },
+      { headers: this.headers }
+    );
   }
 }
