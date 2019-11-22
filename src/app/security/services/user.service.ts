@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private headers = new HttpHeaders({
+    "Content-Type": "application/json"
+  });
 
   status: ReplaySubject<boolean> = new ReplaySubject<boolean>();
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.status.next(this.getUser() != null);
   }
 
@@ -33,5 +37,12 @@ export class UserService {
 
   // Remove user from local memory
   removeUser = () => this.setUser(null);
+
+  getUsersLists(){
+    return this.http.get<any>(
+      `http://pantry-api.glitch.me/api/users/${this.getUser()['Username']}/lists`,
+      { headers: this.headers }
+    );
+  }
 
 }
