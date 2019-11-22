@@ -16,7 +16,6 @@ import { UserDataService } from "../user-data.service";
 export class ListPageComponent implements OnInit {
   componentRef: any;
   myCurrentListRefs: string[] = [];
-  myCurrentLists: ListComponent[] = [];
 
   @ViewChild("listContainer", { static: false, read: ViewContainerRef })
   entry: ViewContainerRef;
@@ -28,25 +27,27 @@ export class ListPageComponent implements OnInit {
 
   ngOnInit() {
     this.getLists();
-    this.generateLists();
   }
 
   getLists() {
     this.api.getUser("5daf8e7b1c9d44000033bca1").subscribe(data => {
       this.myCurrentListRefs.push(data.Lists);
       console.log("The user lists are: " + data.Lists);
+      this.generateLists();
     });
   }
 
   generateLists() {
-    for (var myCurrentListRef in this.myCurrentListRefs) {
-      this.myCurrentLists.push(new ListComponent(null, null, myCurrentListRef));
+    for (let myCurrentListRef of this.myCurrentListRefs) {
+      this.createList(myCurrentListRef);
+      console.log("I just generated a new list!");
     }
   }
 
-  createList() {
+  createList(newListRef: string) {
     const factory = this.resolver.resolveComponentFactory(ListComponent);
     this.componentRef = this.entry.createComponent(factory);
     this.componentRef.instance.viewRef = this.componentRef;
+    this.componentRef.instance.listRef = newListRef;
   }
 }

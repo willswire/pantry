@@ -18,23 +18,7 @@ export class ListComponent implements OnInit {
   heartColor: string;
   listRef: string;
 
-  constructor(
-    private dialog: MatDialog,
-    private api: ListService,
-    incomingListRef?: string
-  ) {
-    if (incomingListRef === "blank") {
-      this.api.createList("My New List").subscribe(result => {
-        this.listRef = result.toString();
-        console.log("The new component has a listref of: " + this.listRef);
-      });
-    } else {
-      this.listRef = incomingListRef;
-      this.api.getListByID("5dd6d4a65b7e7b00835981b1").subscribe(result => {
-        console.log("Got the following list from the api: " + result);
-      });
-    }
-  }
+  constructor(private dialog: MatDialog, private api: ListService) {}
 
   favoriteList() {
     this.favorite ? (this.heartColor = "white") : (this.heartColor = "warn");
@@ -74,7 +58,21 @@ export class ListComponent implements OnInit {
       "_listimage.png";
   }
 
+  setListRef() {
+    if (this.listRef) {
+      this.api.getListByID("5dd6d4a65b7e7b00835981b1").subscribe(result => {
+        console.log("The exisiting list has a listref of: " + result);
+      });
+    } else {
+      this.api.createList("My New List").subscribe(result => {
+        this.listRef = result.toString();
+        console.log("The new list has a listref of: " + this.listRef);
+      });
+    }
+  }
+
   ngOnInit() {
     this.setListImage();
+    this.setListRef();
   }
 }

@@ -78,7 +78,7 @@ import { SecurityModule } from "./security/security.module";
     MatDialogModule,
     MatExpansionModule
   ],
-  providers: [{ provide: String, useValue: "blank" }],
+  providers: [],
   bootstrap: [AppComponent],
   entryComponents: [ListComponent, NeedComponent, EditComponent]
 })
