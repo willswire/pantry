@@ -51,4 +51,15 @@ export class ItemService {
         })
       );
   }
+  public getItemByName(name: String) {
+    return this._http
+      .get<any>(`https://pantry-api.glitch.me/api/items/item/${name}`, {
+        headers: this.headers
+      })
+      .pipe(
+        map((item: any) => {
+          return item;
+        })
+      );
+  }
 }
