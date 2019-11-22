@@ -1,7 +1,33 @@
-<div class="form-container">
-  <input [(ngModel)]="email" placeholder="Email" type="email" required>
-  <input [(ngModel)]="password" placeholder="Password" type="password" required>
-  <button (click)="loginClick()" type="submit">
-    Sign In
-  </button>
+<div class="login-div">
+  <mat-card class="example-card login-card">
+    <mat-card-header class="login-card-content">
+      <mat-card-title>Log In</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="login-card-content">
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="login-card-content">
+      <button mat-raised-button (click)="loginClick()" color="primary">Log In</button>
+    </mat-card-actions>
+    <div class="login-card-content"> 
+      <mat-spinner *ngIf="loggingIn" [diameter]="40" [strokeWidth]="5"></mat-spinner>
+    </div>
+  </mat-card>
 </div>

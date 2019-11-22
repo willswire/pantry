@@ -18,48 +18,53 @@ export class AuthService {
     private _userSvc: UserService
   ) {}
 
-  public login(email: string, password: string) {
+  public login(username: string, password: string) {
     return this._http
-      .post(
-        "https://pantry-api.glitch.me/api/auth/login",
-        { email: email, password: password },
-        { headers: this.headers }
-      )
-      .pipe(
-        map((user: any) => {
-          this._userSvc.setUser(user);
-          return user;
-        })
-      );
+    .post(
+      "https://pantry-security-server.glitch.me/api/auth/login",
+      { username: username, password: password },
+      { headers: this.headers }
+    )
+    .pipe(
+      map((user: any) => {
+        console.log(user);
+        this._userSvc.setUser(user);
+        return user;
+      })
+    );
   }
 
   public logout() {
     this._userSvc.removeUser();
+    this.router.navigate(['/login']);
   }
 
   public register(
-    email: string,
+    username: string,
     password: string,
-    firstName: string,
-    lastName: string
+    name: string,
+    gender: string,
+    birthday: Date
   ) {
     return this._http
-      .post(
-        "https://pantry-api.glitch.me/api/auth/register",
-        {
-          email: email,
-          firstName: firstName,
-          lastName: lastName,
-          password: password
-        },
-        { headers: this.headers }
-      )
-      .pipe(
-        map((user: any) => {
-          this._userSvc.setUser(user);
-          return user;
-        })
-      );
+    .post(
+      "https://pantry-security-server.glitch.me/api/auth/register",
+      {
+        username: username,
+        password: password,
+        name: name,
+        gender: gender,
+        birthday: birthday
+      },
+      { headers: this.headers }
+    )
+    .pipe(
+      map((user: any) => {
+        console.log(user);
+        this._userSvc.setUser(user);
+        return user;
+      })
+    );
   }
 
   public isLoggedIn() {

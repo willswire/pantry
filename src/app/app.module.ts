@@ -17,7 +17,7 @@ import { MatRadioModule } from "@angular/material/radio";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
 import { MatCheckboxModule } from "@angular/material/checkbox";
-import { MatInputModule } from "@angular/material";
+import { MatInputModule, MatProgressSpinnerModule } from "@angular/material";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatExpansionModule } from "@angular/material/expansion";
 
@@ -76,7 +76,8 @@ import { SecurityModule } from "./security/security.module";
     }),
     SecurityModule,
     MatDialogModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],
