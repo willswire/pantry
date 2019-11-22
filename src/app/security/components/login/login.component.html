@@ -26,5 +26,8 @@
     <mat-card-actions class="login-card-content">
       <button mat-raised-button (click)="loginClick()" color="primary">Log In</button>
     </mat-card-actions>
+    <div class="login-card-content"> 
+      <mat-spinner *ngIf="loggingIn" [diameter]="40" [strokeWidth]="5"></mat-spinner>
+    </div>
   </mat-card>
 </div>

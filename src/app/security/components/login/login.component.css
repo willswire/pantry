@@ -2,15 +2,15 @@
     flex-direction: column;
   }
   
-  .login-div{
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.login-div{
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   
-  .login-card-content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.login-card-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
