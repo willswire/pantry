@@ -36,7 +36,7 @@ export class AuthService {
 
   public logout() {
     this._userSvc.removeUser();
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   public register(

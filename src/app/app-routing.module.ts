@@ -7,19 +7,12 @@ import { RegisterComponent } from './security/components/register/register.compo
 import { LoginComponent } from './security/components/login/login.component';
 
 const routes: Routes = [
-<<<<<<< HEAD
-	{ path: "", component: HomeComponent, pathMatch: "full" },
+  { path: "", component: ListPageComponent, pathMatch: "full" },
 	{ path: "info", component: InfoComponent },
 	{ path: "lists", component: ListPageComponent },
 	{ path: "items", component: ItemsComponent },
 	{ path: "register", component: RegisterComponent },
 	{ path: "login", component: LoginComponent }
-=======
-  { path: "", component: ListPageComponent, pathMatch: "full" },
-  { path: "info", component: InfoComponent },
-  { path: "lists", component: ListPageComponent },
-  { path: "items", component: ItemsComponent }
->>>>>>> master
 ];
 
 @NgModule({
