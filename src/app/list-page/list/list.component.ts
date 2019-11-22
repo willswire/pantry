@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
   favorite: boolean = false;
   heartColor: string;
   listRef: string;
+  userPic: string;
 
   constructor(private dialog: MatDialog, private api: ListService) {}
 
