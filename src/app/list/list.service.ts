@@ -38,4 +38,12 @@ export class ListService {
       }
     );
   }
+
+  public updateList(listID: String, title: String) {
+    return this._http.put(
+      `https://pantry-api.glitch.me/api/lists/${listID}`,
+      { title: title },
+      { headers: this.headers }
+    );
+  }
 }

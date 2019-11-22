@@ -31,7 +31,9 @@ export class ListPageComponent implements OnInit {
 
   getLists() {
     this.api.getUser("5daf8e7b1c9d44000033bca1").subscribe(data => {
-      this.myCurrentListRefs.push(data.Lists);
+      for (let list of data.Lists) {
+        this.myCurrentListRefs.push(list);
+      }
       console.log("The user lists are: " + data.Lists);
       this.generateLists();
     });

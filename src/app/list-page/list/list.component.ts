@@ -32,7 +32,12 @@ export class ListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) this.listName = result;
+      if (result) {
+        this.listName = result;
+        this.api.updateList(this.listRef, this.listName).subscribe(result => {
+          console.log("The list has been renamed");
+        });
+      }
     });
   }
 
@@ -60,15 +65,23 @@ export class ListComponent implements OnInit {
 
   setListRef() {
     if (this.listRef) {
-      this.api.getListByID("5dd6d4a65b7e7b00835981b1").subscribe(result => {
-        console.log("The exisiting list has a listref of: " + result);
+      this.api.getListByID(this.listRef).subscribe(result => {
+        console.log("The exisiting list has a listref of: " + result._id);
       });
+      this.setListData();
     } else {
       this.api.createList("My New List").subscribe(result => {
         this.listRef = result.toString();
         console.log("The new list has a listref of: " + this.listRef);
       });
     }
+  }
+
+  setListData() {
+    this.api.getListByID(this.listRef).subscribe(result => {
+      console.log("The exisiting list has the title of: " + result.title);
+      this.listName = result.title;
+    });
   }
 
   ngOnInit() {
