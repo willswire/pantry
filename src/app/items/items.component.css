@@ -26,6 +26,34 @@
   margin-right: auto;
 }
 
+.item-card {
+  max-width: 15rem;
+}
+
+.search {
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.search-bar {
+  color: white;
+  width: 100%;
+}
+
+.form-field {
+  width: 50vw;
+}
+
+.search-box {
+  padding-top: 16px; 
+  width: 50vw;
+  border-radius: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #item-grid {
   display: grid;
   grid-template-rows: auto auto auto auto;
