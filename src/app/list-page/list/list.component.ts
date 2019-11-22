@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject, ComponentRef } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
-import { HaveComponent } from "./have/have.component";
 import { NeedComponent } from "./need/need.component";
 import { EditComponent } from "./edit/edit.component";
 import { environment } from "src/environments/environment";
+import { ListService } from "src/app/list/list.service";
 
 @Component({
   selector: "app-list",
@@ -16,8 +16,9 @@ export class ListComponent implements OnInit {
   viewRef: ComponentRef<ListComponent>;
   favorite: boolean = false;
   heartColor: string;
+  listRef: string;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private api: ListService) {}
 
   favoriteList() {
     this.favorite ? (this.heartColor = "white") : (this.heartColor = "warn");
@@ -31,16 +32,13 @@ export class ListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) this.listName = result;
+      if (result) {
+        this.listName = result;
+        this.api.updateList(this.listRef, this.listName).subscribe(result => {
+          console.log("The list has been renamed");
+        });
+      }
     });
-  }
-
-  openHaveComponent() {
-    const dialogRef = this.dialog.open(HaveComponent, {
-      width: "400px"
-    });
-
-    dialogRef.afterClosed().subscribe(result => {});
   }
 
   openNeedComponent() {
@@ -52,7 +50,10 @@ export class ListComponent implements OnInit {
   }
 
   deleteList() {
-    this.viewRef.destroy();
+    this.api.deleteList(this.listRef).subscribe(result => {
+      console.log(result);
+      this.viewRef.destroy();
+    });
   }
 
   setListImage() {
@@ -62,7 +63,29 @@ export class ListComponent implements OnInit {
       "_listimage.png";
   }
 
+  setListRef() {
+    if (this.listRef) {
+      this.api.getListByID(this.listRef).subscribe(result => {
+        console.log("The exisiting list has a listref of: " + result._id);
+      });
+      this.setListData();
+    } else {
+      this.api.createList("My New List").subscribe(result => {
+        this.listRef = result.toString();
+        console.log("The new list has a listref of: " + this.listRef);
+      });
+    }
+  }
+
+  setListData() {
+    this.api.getListByID(this.listRef).subscribe(result => {
+      console.log("The exisiting list has the title of: " + result.title);
+      this.listName = result.title;
+    });
+  }
+
   ngOnInit() {
     this.setListImage();
+    this.setListRef();
   }
 }
