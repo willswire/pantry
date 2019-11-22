@@ -16,14 +16,9 @@ export class ListComponent implements OnInit {
   viewRef: ComponentRef<ListComponent>;
   favorite: boolean = false;
   heartColor: string;
-  listRef: any;
+  listRef: string;
 
-  constructor(private dialog: MatDialog, private api: ListService) {
-    this.api.createList("My New List").subscribe(result => {
-      this.listRef = result;
-      console.log("The new component has a listref of: " + this.listRef);
-    });
-  }
+  constructor(private dialog: MatDialog, private api: ListService) {}
 
   favoriteList() {
     this.favorite ? (this.heartColor = "white") : (this.heartColor = "warn");
@@ -37,7 +32,12 @@ export class ListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) this.listName = result;
+      if (result) {
+        this.listName = result;
+        this.api.updateList(this.listRef, this.listName).subscribe(result => {
+          console.log("The list has been renamed");
+        });
+      }
     });
   }
 
@@ -63,7 +63,29 @@ export class ListComponent implements OnInit {
       "_listimage.png";
   }
 
+  setListRef() {
+    if (this.listRef) {
+      this.api.getListByID(this.listRef).subscribe(result => {
+        console.log("The exisiting list has a listref of: " + result._id);
+      });
+      this.setListData();
+    } else {
+      this.api.createList("My New List").subscribe(result => {
+        this.listRef = result.toString();
+        console.log("The new list has a listref of: " + this.listRef);
+      });
+    }
+  }
+
+  setListData() {
+    this.api.getListByID(this.listRef).subscribe(result => {
+      console.log("The exisiting list has the title of: " + result.title);
+      this.listName = result.title;
+    });
+  }
+
   ngOnInit() {
     this.setListImage();
+    this.setListRef();
   }
 }
