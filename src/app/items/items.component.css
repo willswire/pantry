@@ -1,21 +1,40 @@
+.create-fab {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+}
+
 .info {
-	margin: 10px;
+  margin: 10px;
 }
 
 .item-button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form-field {
+  width: 100%;
+}
+
+.search-card {
+  width: auto;
+  max-width: 500px;
+  margin: 16px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #item-grid {
-  display:grid;
+  display: grid;
   grid-template-rows: auto auto auto auto;
   grid-template-columns: auto auto auto auto;
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
   padding: 1rem;
 }
+
 @media only screen and (max-width: 1200px) {
   #item-grid {
     grid-template-rows: auto auto auto;
