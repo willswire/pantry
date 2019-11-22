@@ -14,6 +14,18 @@
   align-items: center;
 }
 
+.search-form-field {
+  width: 100%;
+}
+
+.search-card {
+  width: auto;
+  max-width: 500px;
+  margin: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #item-grid {
   display: grid;
   grid-template-rows: auto auto auto auto;
