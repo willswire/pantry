@@ -19,7 +19,7 @@ export class NavigationComponent implements OnInit {
     this._title = value;
   }
 
-  constructor(private app: AppInfoService, private router: Router, private authService: AuthService) {}
+  constructor(private app: AppInfoService, private router: Router, public authService: AuthService) {}
 
   ngOnInit() {
     this.title = this.app.title;
