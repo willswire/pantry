@@ -1,14 +1,10 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <div mat-card-avatar class="user-image"></div>
-    <mat-card-title>Greg Silber</mat-card-title>
-    <mat-card-subtitle>gsilber@udel.edu</mat-card-subtitle>
+    <img mat-card-avatar src="{{ userPic }}">
+    <mat-card-title>{{ userName }}</mat-card-title>
+    <mat-card-subtitle>My Account</mat-card-subtitle>
   </mat-card-header>
-  <img
-    mat-card-image
-    src="assets/efa3fe0cfa64b82ac20c46a8922b5c64.jpg"
-    alt="Application Graphic"
-  />
+  <img mat-card-image src="assets/efa3fe0cfa64b82ac20c46a8922b5c64.jpg" alt="Application Graphic" />
   <mat-card-content>
     <p>
       Not only does your Pantry account keeps track of items on your grocery
