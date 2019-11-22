@@ -51,6 +51,19 @@ export class ItemService {
         })
       );
   }
+
+  public getAllItems() {
+    return this._http
+      .get<any>(`https://pantry-api.glitch.me/api/items/`, {
+        headers: this.headers
+      })
+      .pipe(
+        map((item: any) => {
+          return item;
+        })
+      );
+  }
+
   public getItemByName(name: String) {
     return this._http
       .get<any>(`https://pantry-api.glitch.me/api/items/item/${name}`, {
@@ -61,5 +74,32 @@ export class ItemService {
           return item;
         })
       );
+  }
+
+  public updateItemByID(
+    itemID: String,
+    itemName: String,
+    desc: String,
+    icon: String
+  ) {
+    return this._http
+    .put(
+      `https://pantry-api.glitch.me/api/items/${itemID}`,
+        {
+        'name' : itemName,
+        'description': desc,
+        'icon': icon
+      }, { headers: this.headers }).subscribe(
+        val => {
+            console.log("PUT call successful value returned in body", 
+                        val);
+        },
+        response => {
+            console.log("PUT call in error", response);
+        },
+        () => {
+            console.log("The PUT observable is now completed.");
+        }
+    );
   }
 }
