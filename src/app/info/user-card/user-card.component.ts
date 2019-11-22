@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { UserDataService } from "src/app/user-data.service";
 
 @Component({
   selector: "info-user-card",
@@ -6,7 +7,22 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./user-card.component.css"]
 })
 export class UserCardComponent implements OnInit {
-  constructor() {}
+  userPic: string;
+  userName: string;
 
-  ngOnInit() {}
+  constructor(private api: UserDataService) {}
+
+  ngOnInit() {
+    this.setUser();
+  }
+
+  setUser() {
+    var userToken = JSON.parse(localStorage.getItem("user"));
+    var userID = userToken._id;
+    console.log("The user ID is: " + userID);
+    this.api.getUser(userID).subscribe(data => {
+      this.userPic = data.pic;
+      this.userName = data.Name;
+    });
+  }
 }
