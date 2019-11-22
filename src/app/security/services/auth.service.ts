@@ -63,7 +63,6 @@ export class AuthService {
       map((user: any) => {
         console.log(user);
         this._userSvc.setUser(user);
-        this.router.navigate(['/lists']);
         return user;
       })
     );

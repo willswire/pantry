@@ -1,4 +1,4 @@
-<div class="login-div">
+<div class="register-div">
   <mat-card class="example-card login-card">
     <mat-card-header class="login-card-content">
       <mat-card-title>Register</mat-card-title>
@@ -54,5 +54,8 @@
     <mat-card-actions class="login-card-content">
       <button mat-raised-button (click)="registerUser()" color="primary" type="button">Register</button>
     </mat-card-actions>
+    <div class="login-card-content"> 
+      <mat-spinner *ngIf="registering" [diameter]="40" [strokeWidth]="5"></mat-spinner>
+    </div>
   </mat-card>
 </div>

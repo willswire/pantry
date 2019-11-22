@@ -2,11 +2,12 @@
     flex-direction: column;
 }
 
-.login-div{
+.register-div{
     height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 5%;
 }
   
 .login-card-content{
