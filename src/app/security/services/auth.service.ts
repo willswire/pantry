@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { UserService } from "./user.service";
+import { UserStorageService } from "./user-storage.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { Router } from "@angular/router";
@@ -15,7 +15,7 @@ export class AuthService {
   constructor(
     private router: Router,
     private _http: HttpClient,
-    private _userSvc: UserService
+    private _userSvc: UserStorageService
   ) {}
 
   public login(email: string, password: string) {
