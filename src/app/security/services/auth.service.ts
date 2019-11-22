@@ -21,7 +21,7 @@ export class AuthService {
   public login(username: string, password: string) {
     return this._http
     .post(
-      "http://pantry-security-server.glitch.me/api/auth/login",
+      "https://pantry-security-server.glitch.me/api/auth/login",
       { username: username, password: password },
       { headers: this.headers }
     )

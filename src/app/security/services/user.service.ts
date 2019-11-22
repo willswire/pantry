@@ -40,7 +40,7 @@ export class UserService {
 
   getUsersLists(){
     return this.http.get<any>(
-      `http://pantry-api.glitch.me/api/users/${this.getUser()['Username']}/lists`,
+      `https://pantry-api.glitch.me/api/users/${this.getUser()['Username']}/lists`,
       { headers: this.headers }
     );
   }
