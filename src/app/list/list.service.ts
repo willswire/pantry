@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -14,38 +13,37 @@ export class ListService {
 
   public createList(title: String) {
     return this._http.post(
-      `http://pantry-api.glitch.me/api/lists/`,
+      `https://pantry-api.glitch.me/api/lists/`,
       { title: title },
-      { headers: this.headers },
-    )
-    .pipe(
-      map((list: any) => {
-        return list;
-      })
+      { headers: this.headers }
     );
   }
 
   public deleteList(listID: String) {
     return this._http.delete(
-      `http://pantry-api.glitch.me/api/lists/${listID}`,
-      { headers: this.headers, observe: 'response', responseType: 'text'  },
-    )
-    .pipe(
-      map((res: any) => {
-        return res;
-      })
+      `https://pantry-api.glitch.me/api/lists/${listID}`,
+      {
+        headers: this.headers,
+        observe: "response",
+        responseType: "text"
+      }
     );
   }
 
   public getListByID(listID: String) {
     return this._http.get<any>(
-      `http://pantry-api.glitch.me/api/lists/${listID}`,
+      `https://pantry-api.glitch.me/api/lists/${listID}`,
+      {
+        headers: this.headers
+      }
+    );
+  }
+
+  public updateList(listID: String, title: String) {
+    return this._http.put(
+      `https://pantry-api.glitch.me/api/lists/${listID}`,
+      { title: title },
       { headers: this.headers }
-    )
-    .pipe(
-      map((list: any) => {
-        return list;
-      })
     );
   }
 }
