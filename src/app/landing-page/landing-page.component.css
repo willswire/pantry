@@ -1,0 +1,66 @@
+h1 {
+  font-size: 3em;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.image-grow {
+  flex-grow: 1;
+}
+
+.text-div {
+  margin-left: 32px;
+  min-width: 400px;
+}
+
+.welcome-div {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: white;
+  color: black;
+}
+
+.landing-image {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.about-div {
+  padding: 32px;
+  background-color: #424242;
+  color: white;
+}
+
+.about-content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+}
+
+ul {
+  margin-left: 0px;
+  font-size: 1.5em;
+  list-style-type: none;
+  padding-inline-start: 0px;
+}
+
+li {
+  padding: 8px;
+  display: flex;
+}
+
+.secondary-text {
+  font-weight: lighter;
+}
+
+.li-icon {
+  margin-right: 8px;
+}
