@@ -7,6 +7,7 @@ import {
   MatExpansionPanelDescription
 } from "@angular/material";
 import { Pipe, PipeTransform } from "@angular/core";
+import { ItemService } from "./item.service";
 
 @Component({
   selector: "app-items",
@@ -17,9 +18,14 @@ export class ItemsComponent implements OnInit {
   items = ITEMS;
   searchText: string;
 
-  constructor() {}
+  constructor(private _itemSvc : ItemService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+	  this._itemSvc.getAllItems().subscribe(val => {
+		  this.items = val;
+		  console.log(val);
+	  });
+  }
 }
 
 @Pipe({
