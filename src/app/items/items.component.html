@@ -1,8 +1,6 @@
 <mat-card class="search-box">
-    <mat-form-field appearance="outline" color="accent" class="form-field">
-      <input matInput [(ngModel)]="searchText" placeholder="Search" class="search-bar"/>
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
+  <input [(ngModel)]="searchText" placeholder="Search" class="search-bar"/>
+  <mat-icon>search</mat-icon>
 </mat-card>
 <div id="item-grid">
   <div *ngFor="let item of items | filter: searchText" class = "item-card">
