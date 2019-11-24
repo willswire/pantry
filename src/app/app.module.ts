@@ -37,6 +37,7 @@ import { FilterPipe } from "./items/items.component";
 
 import { SecurityModule } from "./security/security.module";
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AlertComponent } from './alert/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     NeedComponent,
     EditComponent,
     FilterPipe,
-    LandingPageComponent
+    LandingPageComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

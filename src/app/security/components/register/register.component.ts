@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router'
 import { throwError } from 'rxjs';
+
+import { AlertService } from '../../../alert/alert.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +19,11 @@ export class RegisterComponent implements OnInit {
   birthday: Date;
   registering = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private _alertSvc: AlertService,
+  ) { }
 
   ngOnInit() {
   }
@@ -27,6 +33,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(this.username, this.password, this.name, this.gender, this.birthday)
     .pipe(catchError(err => {
       this.registering = false;
+      this._alertSvc.error(err);
       return throwError(err);
     })).subscribe(
       data => this.router.navigate(['/lists']),
