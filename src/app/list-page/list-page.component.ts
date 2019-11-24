@@ -33,13 +33,11 @@ export class ListPageComponent implements OnInit {
   getLists() {
     var userToken = JSON.parse(localStorage.getItem("user"));
     var userID = userToken._id;
-    console.log("The user ID is: " + userID);
     this.api.getUser(userID).subscribe(data => {
       for (let list of data.Lists) {
         this.myCurrentListRefs.push(list);
       }
       this.userPic = data.pic;
-      console.log("The user lists are: " + data.Lists);
       this.generateLists();
     });
   }
@@ -47,7 +45,6 @@ export class ListPageComponent implements OnInit {
   generateLists() {
     for (let myCurrentListRef of this.myCurrentListRefs) {
       this.createList(myCurrentListRef);
-      console.log("I just generated a new list!");
     }
   }
 
