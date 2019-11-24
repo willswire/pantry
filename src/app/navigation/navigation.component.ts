@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { AppInfoService } from "../app-info.service";
 import { Router } from "@angular/router";
-import { AuthService } from '../security/services/auth.service';
-import { UserStorageService } from '../security/services/user-storage.service';
+import { AuthService } from "../security/services/auth.service";
+import { UserStorageService } from "../security/services/user-storage.service";
 
 @Component({
   selector: "app-navigation",
@@ -25,15 +25,14 @@ export class NavigationComponent implements OnInit {
     private app: AppInfoService,
     private router: Router,
     private authService: AuthService,
-    private userService: UserStorageService,
-  ) { }
+    private userService: UserStorageService
+  ) {}
 
   ngOnInit() {
     this.title = this.app.title;
     this.userService.status.subscribe((status: boolean) => {
       this.isLoggedIn = status;
     });
-    console.log(this.isLoggedIn);
   }
 
   goInfo() {
@@ -41,6 +40,6 @@ export class NavigationComponent implements OnInit {
   }
 
   public logout() {
-    this.authService.logout()
+    this.authService.logout();
   }
 }
