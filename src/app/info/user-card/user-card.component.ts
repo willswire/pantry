@@ -19,7 +19,6 @@ export class UserCardComponent implements OnInit {
   setUser() {
     var userToken = JSON.parse(localStorage.getItem("user"));
     var userID = userToken._id;
-    console.log("The user ID is: " + userID);
     this.api.getUser(userID).subscribe(data => {
       this.userPic = data.pic;
       this.userName = data.Name;
