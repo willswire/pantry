@@ -1,0 +1,21 @@
+.alert {
+  border-bottom-width: 1.5px;
+  border-bottom-style:solid;
+  height:inherit;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  z-index:10;
+  text-align:center;
+}
+
+.alert-success {
+  background-color: #CDFDDE;
+  color: #2FE082;
+  border-bottom-color: #99EBBC;
+}
+
+.alert-warn {
+  background-color: #FDCDD2;
+  color: #E03C2F;
+  border-bottom-color: #EB9B99;
+}

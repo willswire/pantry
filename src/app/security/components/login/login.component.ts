@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service'
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+
+import { AuthService } from '../../services/auth.service';
+import { AlertService } from '../../../alert/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +16,17 @@ export class LoginComponent implements OnInit {
   password: string;
   loggingIn = false;
 
-  constructor(private _authSvc: AuthService, private router: Router) { }
+  constructor(
+    private _authSvc: AuthService,
+    private _alertSvc: AlertService,
+    private router: Router,
+  ) { }
 
   loginClick() {
     this.loggingIn = true;
     this._authSvc.login(this.username, this.password).pipe(catchError(err => {
       this.loggingIn = false;
+      this._alertSvc.error(err);
       return throwError(err);
     })).subscribe(
       data => this.router.navigate(['/lists']),
