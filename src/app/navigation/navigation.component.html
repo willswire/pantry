@@ -3,17 +3,17 @@
 		<mat-icon style="transform:scale(1.5)">storefront</mat-icon>
 	</button>
 	<span class="logo-padding"></span>
-	<div *ngIf="this.authService.isLoggedIn()">
+	<div *ngIf="isLoggedIn">
 		<button mat-button routerLink="/lists/">Lists</button>
 		<button mat-button routerLink="/items">Items</button>
 	</div>
 	<span class="navigation-padding"></span>
-	<div *ngIf="!this.authService.isLoggedIn()">
+	<div *ngIf="!isLoggedIn">
 		<button mat-raised-button routerLink="/login">Log In</button>
 		<button mat-raised-button routerLink="/register" style="margin-left:15px">Sign Up</button>
 	</div>
-	<div *ngIf="this.authService.isLoggedIn()">
-		<button mat-icon-button (click)="this.authService.logout()">
+	<div *ngIf="isLoggedIn">
+		<button mat-icon-button (click)="logout()">
 			<mat-icon>power_settings_new</mat-icon>
 		</button>
 		<button mat-icon-button aria-label="my account" routerLink="/info">
