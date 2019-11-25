@@ -1,9 +1,14 @@
-import { Component, OnInit, Inject, ComponentRef } from "@angular/core";
+import { Component, OnInit, ComponentRef } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { NeedComponent } from "./need/need.component";
 import { EditComponent } from "./edit/edit.component";
 import { environment } from "src/environments/environment";
 import { ListService } from "src/app/list/list.service";
+
+export interface DialogData {
+  listRef: string;
+  listName: string;
+}
 
 @Component({
   selector: "app-list",
@@ -44,7 +49,8 @@ export class ListComponent implements OnInit {
 
   openNeedComponent() {
     const dialogRef = this.dialog.open(NeedComponent, {
-      width: "400px"
+      width: "400px",
+      data: { listRef: this.listRef, listName: this.listName }
     });
 
     dialogRef.afterClosed().subscribe(result => {});
