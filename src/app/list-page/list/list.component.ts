@@ -1,9 +1,15 @@
-import { Component, OnInit, Inject, ComponentRef } from "@angular/core";
+import { Component, OnInit, ComponentRef } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { NeedComponent } from "./need/need.component";
 import { EditComponent } from "./edit/edit.component";
 import { environment } from "src/environments/environment";
 import { ListService } from "src/app/list/list.service";
+import { ItemService } from "src/app/items/item.service";
+
+export interface DialogData {
+  listName: string;
+  items: Object[];
+}
 
 @Component({
   selector: "app-list",
@@ -18,8 +24,13 @@ export class ListComponent implements OnInit {
   heartColor: string;
   listRef: string;
   userPic: string;
+  items: Object[] = [];
 
-  constructor(private dialog: MatDialog, private api: ListService) {}
+  constructor(
+    private dialog: MatDialog,
+    private listApi: ListService,
+    private itemApi: ItemService
+  ) {}
 
   favoriteList() {
     this.favorite ? (this.heartColor = "white") : (this.heartColor = "warn");
@@ -35,7 +46,7 @@ export class ListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.listName = result;
-        this.api
+        this.listApi
           .updateList(this.listRef, this.listName)
           .subscribe(result => {});
       }
@@ -44,14 +55,15 @@ export class ListComponent implements OnInit {
 
   openNeedComponent() {
     const dialogRef = this.dialog.open(NeedComponent, {
-      width: "400px"
+      width: "400px",
+      data: { items: this.items, listName: this.listName }
     });
 
     dialogRef.afterClosed().subscribe(result => {});
   }
 
   deleteList() {
-    this.api.deleteList(this.listRef).subscribe(result => {
+    this.listApi.deleteList(this.listRef).subscribe(result => {
       this.viewRef.destroy();
     });
   }
@@ -65,21 +77,39 @@ export class ListComponent implements OnInit {
 
   setListRef() {
     if (this.listRef) {
-      this.api.getListByID(this.listRef).subscribe(result => {});
-      this.setListData();
+      this.listApi.getListByID(this.listRef).subscribe(result => {});
     } else {
       var userToken = JSON.parse(localStorage.getItem("user"));
       var userID = userToken._id;
-      this.api.createList(this.listName, userID).subscribe(result => {
+      this.listApi.createList(this.listName, userID).subscribe(result => {
         this.listRef = result.toString();
       });
     }
+    this.setListData();
   }
 
   setListData() {
-    this.api.getListByID(this.listRef).subscribe(result => {
+    this.listApi.getListByID(this.listRef).subscribe(result => {
       this.listName = result.title;
+      this.getItems(Object.values(result.items));
     });
+  }
+
+  getItems(itemRefs: string[]) {
+    if (itemRefs.length > 0) {
+      for (let itemRef of itemRefs) {
+        this.itemApi.getItemByID(itemRef).subscribe(result => {
+          this.items.push(result);
+          console.log("The item is: " + result);
+        });
+      }
+    } else {
+      this.items.push({
+        name: "No Items",
+        description: "There are currently no items in this list",
+        icon: "ballot"
+      });
+    }
   }
 
   ngOnInit() {
