@@ -107,7 +107,7 @@ export class ListComponent implements OnInit {
       this.items.push({
         name: "No Items",
         description: "There are currently no items in this list",
-        icon: "ballot"
+        emoji: "&#xe413;"
       });
     }
   }
