@@ -68,7 +68,9 @@ export class ListComponent implements OnInit {
       this.api.getListByID(this.listRef).subscribe(result => {});
       this.setListData();
     } else {
-      this.api.createList("My New List").subscribe(result => {
+      var userToken = JSON.parse(localStorage.getItem("user"));
+      var userID = userToken._id;
+      this.api.createList(this.listName, userID).subscribe(result => {
         this.listRef = result.toString();
       });
     }

@@ -11,10 +11,10 @@ export class ListService {
 
   constructor(private _http: HttpClient) {}
 
-  public createList(title: String) {
+  public createList(title: String, userID: String) {
     return this._http.post(
       `https://pantry-api.glitch.me/api/lists/`,
-      { title: title },
+      { title: title, userID: userID },
       { headers: this.headers }
     );
   }
