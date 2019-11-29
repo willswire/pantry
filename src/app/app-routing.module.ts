@@ -9,6 +9,7 @@ import { LoginComponent } from "./security/components/login/login.component";
 import { LandingPageComponent } from "./landing-page/landing-page.component";
 import { AuthGuard } from './security/guards/auth.guard';
 import { NoauthGuard } from './security/guards/noauth.guard';
+import { ForgotPasswordComponent } from './security/components/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   { path: "", component: LandingPageComponent, pathMatch: "full" },
@@ -36,6 +37,11 @@ const routes: Routes = [
     path: "login",
     component: LoginComponent,
     canActivate: [NoauthGuard],
+  },
+  {
+    path: "forgot-password",
+    component: ForgotPasswordComponent,
+    canActivate: [NoauthGuard]
   }
 ];
 

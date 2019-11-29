@@ -65,6 +65,10 @@ export class AuthService {
       );
   }
 
+  public resetPassword(username: String, password: String){
+    return this._http.post("http://localhost:3001/api/auth/reset-password", {username: username, password: password}, {observe: 'response'});
+  }
+
   public isLoggedIn() {
     return localStorage.getItem("user") != null;
   }

@@ -16,10 +16,11 @@ import {
   MatSelectModule
 } from '@angular/material';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent],
   imports: [
     CommonModule,
     HttpClientModule,
