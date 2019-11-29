@@ -38,6 +38,7 @@ import { FilterPipe } from "./items/items.component";
 import { SecurityModule } from "./security/security.module";
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AlertComponent } from './alert/alert/alert.component';
+import { ShareComponent } from './list-page/list/share/share.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { AlertComponent } from './alert/alert/alert.component';
     EditComponent,
     FilterPipe,
     LandingPageComponent,
-    AlertComponent
+    AlertComponent,
+    ShareComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +87,6 @@ import { AlertComponent } from './alert/alert/alert.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ListComponent, NeedComponent, EditComponent]
+  entryComponents: [ListComponent, NeedComponent, EditComponent, ShareComponent]
 })
 export class AppModule {}
