@@ -65,6 +65,10 @@ export class AuthService {
       );
   }
 
+  public resetPassword(username: String, password: String, birthday: Date){
+    return this._http.post("https://pantry-security-server.glitch.me/api/auth/reset-password", {username: username, password: password, birthday: birthday}, {observe: 'response'});
+  }
+
   public isLoggedIn() {
     return localStorage.getItem("user") != null;
   }
