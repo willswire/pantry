@@ -61,9 +61,7 @@ export class ListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(user => {
       if (user) {
-        this.listApi
-          .shareList(this.listRef, user)
-          .subscribe(result => console.log(result));
+        this.listApi.shareList(this.listRef, user).subscribe(result => result);
       }
     });
   }
@@ -94,9 +92,7 @@ export class ListComponent implements OnInit {
 
   setListRef() {
     if (this.listRef) {
-      this.listApi.getListByID(this.listRef).subscribe(result => {
-        console.log(result);
-      });
+      this.listApi.getListByID(this.listRef).subscribe(result => result);
     } else {
       var userToken = JSON.parse(localStorage.getItem("user"));
       var userID = userToken._id;
@@ -119,7 +115,6 @@ export class ListComponent implements OnInit {
       for (let itemRef of itemRefs) {
         this.itemApi.getItemByID(itemRef).subscribe(result => {
           this.items.push(result);
-          console.log("The item is: " + result);
         });
       }
     } else {
