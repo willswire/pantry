@@ -33,14 +33,12 @@ export class ListComponent implements OnInit {
     private itemApi: ItemService
   ) {}
 
-  setFavorite(statement: boolean = !this.favorite) {
-    if (statement) {
-      this.heartColor = "warn";
-      this.favorite = true;
-    } else {
-      this.heartColor = "white";
-      this.favorite = false;
-    }
+  setFavorite(isFavorite: boolean = !this.favorite) {
+    this.heartColor = isFavorite ? "warn" : "white";
+    this.favorite = isFavorite;
+    this.listApi
+      .updateList(this.listRef, { favorite: isFavorite })
+      .subscribe(result => result);
   }
 
   editList() {
@@ -53,7 +51,7 @@ export class ListComponent implements OnInit {
       if (result) {
         this.listName = result;
         this.listApi
-          .updateList(this.listRef, this.listName)
+          .updateList(this.listRef, { title: this.listName })
           .subscribe(result => result);
       }
     });
