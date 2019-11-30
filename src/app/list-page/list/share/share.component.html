@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Share Your List</h1>
+<div mat-dialog-content>
+  <p>Who would you like to share this list with?</p>
+  <mat-form-field>
+    <input matInput placeholder="username" [(ngModel)]="user" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="user" cdkFocusInitial>
+    Share
+  </button>
+</div>
