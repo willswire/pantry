@@ -46,4 +46,12 @@ export class ListService {
       { headers: this.headers }
     );
   }
+
+  public shareList(listID: String, username: String){
+    return this._http.post(
+      `https://pantry-api.glitch.me/api/users/${username}/join`,
+      { listID: listID },
+      { headers: this.headers }
+    );
+  }
 }
