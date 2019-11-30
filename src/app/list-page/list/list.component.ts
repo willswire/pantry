@@ -5,7 +5,7 @@ import { EditComponent } from "./edit/edit.component";
 import { environment } from "src/environments/environment";
 import { ListService } from "src/app/list/list.service";
 import { ItemService } from "src/app/items/item.service";
-import { ShareComponent } from './share/share.component';
+import { ShareComponent } from "./share/share.component";
 
 export interface DialogData {
   listName: string;
@@ -22,7 +22,7 @@ export class ListComponent implements OnInit {
   listName: string = "My New List";
   viewRef: ComponentRef<ListComponent>;
   favorite: boolean = false;
-  heartColor: string;
+  heartColor: string = "white";
   listRef: string;
   userPic: string;
   items: Object[] = [];
@@ -33,9 +33,12 @@ export class ListComponent implements OnInit {
     private itemApi: ItemService
   ) {}
 
-  favoriteList() {
-    this.favorite ? (this.heartColor = "white") : (this.heartColor = "warn");
-    this.favorite = !this.favorite;
+  setFavorite(isFavorite: boolean = !this.favorite) {
+    this.heartColor = isFavorite ? "warn" : "white";
+    this.favorite = isFavorite;
+    this.listApi
+      .updateList(this.listRef, { favorite: isFavorite })
+      .subscribe(result => result);
   }
 
   editList() {
@@ -48,8 +51,8 @@ export class ListComponent implements OnInit {
       if (result) {
         this.listName = result;
         this.listApi
-          .updateList(this.listRef, this.listName)
-          .subscribe(result => {});
+          .updateList(this.listRef, { title: this.listName })
+          .subscribe(result => result);
       }
     });
   }
@@ -61,10 +64,10 @@ export class ListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(user => {
       if (user) {
-        this.listApi.shareList(this.listRef, user).subscribe(result => console.log(result));
+        this.listApi.shareList(this.listRef, user).subscribe(result => result);
       }
     });
-  }  
+  }
 
   openNeedComponent() {
     const dialogRef = this.dialog.open(NeedComponent, {
@@ -72,11 +75,14 @@ export class ListComponent implements OnInit {
       data: { items: this.items, listName: this.listName }
     });
 
-    dialogRef.afterClosed().subscribe(result => {});
+    dialogRef.afterClosed().subscribe(result => result);
   }
 
   deleteList() {
-    this.listApi.deleteList(this.listRef).subscribe(result => {
+    var userToken = JSON.parse(localStorage.getItem("user"));
+    var userID = userToken._id;
+    this.listApi.deleteList(this.listRef, userID).subscribe(result => {
+      result;
       this.viewRef.destroy();
     });
   }
@@ -90,7 +96,8 @@ export class ListComponent implements OnInit {
 
   setListRef() {
     if (this.listRef) {
-      this.listApi.getListByID(this.listRef).subscribe(result => {});
+      this.listApi.getListByID(this.listRef).subscribe(result => result);
+      this.setListData();
     } else {
       var userToken = JSON.parse(localStorage.getItem("user"));
       var userID = userToken._id;
@@ -98,12 +105,12 @@ export class ListComponent implements OnInit {
         this.listRef = result.toString();
       });
     }
-    this.setListData();
   }
 
   setListData() {
     this.listApi.getListByID(this.listRef).subscribe(result => {
       this.listName = result.title;
+      this.setFavorite(result.favorite);
       this.getItems(Object.values(result.items));
     });
   }
@@ -113,7 +120,6 @@ export class ListComponent implements OnInit {
       for (let itemRef of itemRefs) {
         this.itemApi.getItemByID(itemRef).subscribe(result => {
           this.items.push(result);
-          console.log("The item is: " + result);
         });
       }
     } else {
