@@ -94,7 +94,9 @@ export class ListComponent implements OnInit {
 
   setListRef() {
     if (this.listRef) {
-      this.listApi.getListByID(this.listRef).subscribe(result => {});
+      this.listApi.getListByID(this.listRef).subscribe(result => {
+        console.log(result);
+      });
     } else {
       var userToken = JSON.parse(localStorage.getItem("user"));
       var userID = userToken._id;

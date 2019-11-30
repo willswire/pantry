@@ -42,20 +42,17 @@ export class ListPageComponent implements OnInit {
     });
   }
 
-  generateLists() {
-    for (let myCurrentListRef of this.myCurrentListRefs) {
-      const factory = this.resolver.resolveComponentFactory(ListComponent);
-      this.componentRef = this.entry.createComponent(factory);
-      this.componentRef.instance.viewRef = this.componentRef;
-      this.componentRef.instance.listRef = myCurrentListRef;
-      this.componentRef.instance.userPic = this.userPic;
-    }
-  }
-
   createList() {
-    const factory = this.resolver.resolveComponentFactory(ListComponent);
+    let factory = this.resolver.resolveComponentFactory(ListComponent);
     this.componentRef = this.entry.createComponent(factory);
     this.componentRef.instance.viewRef = this.componentRef;
     this.componentRef.instance.userPic = this.userPic;
+  }
+
+  generateLists() {
+    for (let myCurrentListRef of this.myCurrentListRefs) {
+      this.createList();
+      this.componentRef.instance.listRef = myCurrentListRef;
+    }
   }
 }
