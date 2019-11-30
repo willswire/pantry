@@ -19,26 +19,15 @@ export class ListService {
     );
   }
 
-  public deleteList(listID: String, userID?: String) {
-    if (userID) {
-      return this._http.delete(
-        `https://pantry-api.glitch.me/api/lists/${listID}/${userID}`,
-        {
-          headers: this.headers,
-          observe: "response",
-          responseType: "text"
-        }
-      );
-    } else {
-      return this._http.delete(
-        `https://pantry-api.glitch.me/api/lists/${listID}/`,
-        {
-          headers: this.headers,
-          observe: "response",
-          responseType: "text"
-        }
-      );
-    }
+  public deleteList(listID: String, userID: String) {
+    return this._http.delete(
+      `https://pantry-api.glitch.me/api/lists/${listID}/${userID}`,
+      {
+        headers: this.headers,
+        observe: "response",
+        responseType: "text"
+      }
+    );
   }
 
   public getListByID(listID: String) {
