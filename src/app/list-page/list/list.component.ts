@@ -79,6 +79,7 @@ export class ListComponent implements OnInit {
     var userToken = JSON.parse(localStorage.getItem("user"));
     var userID = userToken._id;
     this.listApi.deleteList(this.listRef, userID).subscribe(result => {
+      result;
       this.viewRef.destroy();
     });
   }
@@ -93,6 +94,7 @@ export class ListComponent implements OnInit {
   setListRef() {
     if (this.listRef) {
       this.listApi.getListByID(this.listRef).subscribe(result => result);
+      this.setListData();
     } else {
       var userToken = JSON.parse(localStorage.getItem("user"));
       var userID = userToken._id;
@@ -100,7 +102,6 @@ export class ListComponent implements OnInit {
         this.listRef = result.toString();
       });
     }
-    this.setListData();
   }
 
   setListData() {
