@@ -49,7 +49,7 @@ export class ListComponent implements OnInit {
         this.listName = result;
         this.listApi
           .updateList(this.listRef, this.listName)
-          .subscribe(result => {});
+          .subscribe(result => result);
       }
     });
   }
@@ -72,7 +72,7 @@ export class ListComponent implements OnInit {
       data: { items: this.items, listName: this.listName }
     });
 
-    dialogRef.afterClosed().subscribe(result => {});
+    dialogRef.afterClosed().subscribe(result => result);
   }
 
   deleteList() {
