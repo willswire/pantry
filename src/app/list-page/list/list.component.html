@@ -6,7 +6,7 @@
   </mat-card-header>
   <img mat-card-image src="{{ cardImage }}" />
   <mat-card-actions align="end">
-    <button mat-icon-button [color]="heartColor" (click)="favoriteList()">
+    <button mat-icon-button [color]="heartColor" (click)="setFavorite()">
       <mat-icon class="list-mark-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
     </button>
     <button mat-icon-button (click)="editList()">

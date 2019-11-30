@@ -22,7 +22,7 @@ export class ListComponent implements OnInit {
   listName: string = "My New List";
   viewRef: ComponentRef<ListComponent>;
   favorite: boolean = false;
-  heartColor: string;
+  heartColor: string = "white";
   listRef: string;
   userPic: string;
   items: Object[] = [];
@@ -33,9 +33,14 @@ export class ListComponent implements OnInit {
     private itemApi: ItemService
   ) {}
 
-  favoriteList() {
-    this.favorite ? (this.heartColor = "white") : (this.heartColor = "warn");
-    this.favorite = !this.favorite;
+  setFavorite(statement: boolean = !this.favorite) {
+    if (statement) {
+      this.heartColor = "warn";
+      this.favorite = true;
+    } else {
+      this.heartColor = "white";
+      this.favorite = false;
+    }
   }
 
   editList() {
@@ -107,6 +112,7 @@ export class ListComponent implements OnInit {
   setListData() {
     this.listApi.getListByID(this.listRef).subscribe(result => {
       this.listName = result.title;
+      this.setFavorite(result.favorite);
       this.getItems(Object.values(result.items));
     });
   }
