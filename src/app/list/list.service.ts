@@ -14,7 +14,7 @@ export class ListService {
   public createList(title: string, userID: string) {
     return this._http.post(
       `https://pantry-api.glitch.me/api/lists/`,
-      { title: title, userID: userID },
+      { title: title, userID: userID, favorite: false },
       { headers: this.headers }
     );
   }
@@ -39,10 +39,10 @@ export class ListService {
     );
   }
 
-  public updateList(listID: string, title?: string) {
+  public updateList(listID: string, body: Object) {
     return this._http.put(
       `https://pantry-api.glitch.me/api/lists/${listID}`,
-      { title: title },
+      body,
       { headers: this.headers }
     );
   }
