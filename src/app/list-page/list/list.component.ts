@@ -5,7 +5,7 @@ import { EditComponent } from "./edit/edit.component";
 import { environment } from "src/environments/environment";
 import { ListService } from "src/app/list/list.service";
 import { ItemService } from "src/app/items/item.service";
-import { ShareComponent } from './share/share.component';
+import { ShareComponent } from "./share/share.component";
 
 export interface DialogData {
   listName: string;
@@ -61,10 +61,12 @@ export class ListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(user => {
       if (user) {
-        this.listApi.shareList(this.listRef, user).subscribe(result => console.log(result));
+        this.listApi
+          .shareList(this.listRef, user)
+          .subscribe(result => console.log(result));
       }
     });
-  }  
+  }
 
   openNeedComponent() {
     const dialogRef = this.dialog.open(NeedComponent, {
@@ -76,7 +78,9 @@ export class ListComponent implements OnInit {
   }
 
   deleteList() {
-    this.listApi.deleteList(this.listRef).subscribe(result => {
+    var userToken = JSON.parse(localStorage.getItem("user"));
+    var userID = userToken._id;
+    this.listApi.deleteList(this.listRef, userID).subscribe(result => {
       this.viewRef.destroy();
     });
   }
