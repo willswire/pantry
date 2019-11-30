@@ -14,7 +14,7 @@ export class ListService {
   public createList(title: string, userID: string) {
     return this._http.post(
       `https://pantry-api.glitch.me/api/lists/`,
-      { title: title, userID: userID, favorite: false },
+      { title: title, userID: userID },
       { headers: this.headers }
     );
   }
