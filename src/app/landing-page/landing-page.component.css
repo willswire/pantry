@@ -16,21 +16,30 @@ h2 {
   background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/assets/vegetables.jpg);
   background-size: cover;
   background-position-x: center;
-  background-position-y: bottom;
+  background-position-y: center;
   color: white;
   padding: 8px;
   padding-top: 150px;
   padding-bottom: 50px;
 }
 
+.header-text {
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .about-div {
   padding: 32px;
+  padding-bottom: 0px;
   background-color: #424242;
   color: white;
 }
 
 .about-content {
   max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .about-header {
@@ -66,9 +75,11 @@ li {
 
 .developer-header {
   background-color: gainsboro;
-  margin-top: -75px;
+  color: black;
   display: table;
   border-radius: 10px;
+  position: relative;
+  top: 30px;
 }
 
 .developer-card-holder {
