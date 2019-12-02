@@ -1,16 +1,11 @@
 <div>
-  <div class="welcome-div">
-    <div class="text-div">
-      <h1>Welcome to Pantry!</h1>
-      <h2>Grocery shopping made easy</h2>
-    </div>
-    <div class="image-grow">
-      <img src="assets/3_listimage.png" alt="" class="landing-image" />
-    </div>
+  <div class="header">
+    <h1>Pantry</h1>
+    <h2>Grocery shopping made easy</h2>
   </div>
   <div class="about-div">
     <div class="about-content">
-      <h2>Feature Rich</h2>
+      <h2 class="about-header">Feature Rich</h2>
       <ul>
         <li>
           <mat-icon class="li-icon">check_circle</mat-icon>
@@ -60,12 +55,38 @@
             <br />
             <span class="secondary-text">
               Need to use Pantry on your phone? Visit the website on your phone
-              install it as an app! Pantry was developed as a progressive web
-              application, which means it can be installed anywhere!
+              and install it as an app! Pantry was developed as a progressive
+              web application, which means it can be installed on all your
+              devices.
             </span>
           </div>
         </li>
       </ul>
+    </div>
+  </div>
+  <div class="developer-section">
+    <div class="developer-header"><h2>Meet the developers</h2></div>
+    <div class="developer-card-holder">
+      <mat-card *ngFor="let developer of developers" class="developer-card">
+        <img
+          src="https://avatars.githubusercontent.com/{{
+            developer.githubUsername
+          }}"
+          alt=""
+          class="developer-avatar"
+        />
+
+        <h3 class="developer-name">{{ developer.name }}</h3>
+        <a
+          mat-button
+          href="https://www.github.com/{{ developer.githubUsername }}"
+          target="_blank"
+          >GitHub</a
+        >
+        <a mat-button href="mailto:{{ developer.email }}">{{
+          developer.email
+        }}</a>
+      </mat-card>
     </div>
   </div>
 </div>
