@@ -7,11 +7,11 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { UserService } from '../services/user.service';
+import { UserStorageService } from '../services/user-storage.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserStorageService) { }
 
   intercept(
     request: HttpRequest<any>,

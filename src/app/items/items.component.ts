@@ -18,13 +18,13 @@ export class ItemsComponent implements OnInit {
   items = ITEMS;
   searchText: string;
 
-  constructor(private _itemSvc : ItemService) {}
+  constructor(private _itemSvc: ItemService) {}
 
   ngOnInit() {
-	  this._itemSvc.getAllItems().subscribe(val => {
-		  this.items = val;
-		  console.log(val);
-	  });
+    this._itemSvc.getAllItems().subscribe(val => {
+      this.items = val;
+      console.log(val);
+    });
   }
 }
 

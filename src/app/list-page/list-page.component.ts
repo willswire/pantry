@@ -33,29 +33,26 @@ export class ListPageComponent implements OnInit {
   getLists() {
     var userToken = JSON.parse(localStorage.getItem("user"));
     var userID = userToken._id;
-    console.log("The user ID is: " + userID);
     this.api.getUser(userID).subscribe(data => {
       for (let list of data.Lists) {
         this.myCurrentListRefs.push(list);
       }
       this.userPic = data.pic;
-      console.log("The user lists are: " + data.Lists);
       this.generateLists();
     });
   }
 
-  generateLists() {
-    for (let myCurrentListRef of this.myCurrentListRefs) {
-      this.createList(myCurrentListRef);
-      console.log("I just generated a new list!");
-    }
-  }
-
-  createList(newListRef?: string) {
-    const factory = this.resolver.resolveComponentFactory(ListComponent);
+  createList() {
+    let factory = this.resolver.resolveComponentFactory(ListComponent);
     this.componentRef = this.entry.createComponent(factory);
     this.componentRef.instance.viewRef = this.componentRef;
-    if (newListRef) this.componentRef.instance.listRef = newListRef;
     this.componentRef.instance.userPic = this.userPic;
+  }
+
+  generateLists() {
+    for (let myCurrentListRef of this.myCurrentListRefs) {
+      this.createList();
+      this.componentRef.instance.listRef = myCurrentListRef;
+    }
   }
 }

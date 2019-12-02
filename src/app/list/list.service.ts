@@ -11,17 +11,17 @@ export class ListService {
 
   constructor(private _http: HttpClient) {}
 
-  public createList(title: String) {
+  public createList(title: string, userID: string) {
     return this._http.post(
       `https://pantry-api.glitch.me/api/lists/`,
-      { title: title },
+      { title: title, userID: userID },
       { headers: this.headers }
     );
   }
 
-  public deleteList(listID: String) {
+  public deleteList(listID: string, userID: string) {
     return this._http.delete(
-      `https://pantry-api.glitch.me/api/lists/${listID}`,
+      `https://pantry-api.glitch.me/api/lists/${listID}/${userID}`,
       {
         headers: this.headers,
         observe: "response",
@@ -30,7 +30,7 @@ export class ListService {
     );
   }
 
-  public getListByID(listID: String) {
+  public getListByID(listID: string) {
     return this._http.get<any>(
       `https://pantry-api.glitch.me/api/lists/${listID}`,
       {
@@ -39,10 +39,18 @@ export class ListService {
     );
   }
 
-  public updateList(listID: String, title: String) {
+  public updateList(listID: string, body: Object) {
     return this._http.put(
       `https://pantry-api.glitch.me/api/lists/${listID}`,
-      { title: title },
+      body,
+      { headers: this.headers }
+    );
+  }
+
+  public shareList(listID: string, username: string) {
+    return this._http.post(
+      `https://pantry-api.glitch.me/api/users/${username}/join`,
+      { listID: listID },
       { headers: this.headers }
     );
   }
