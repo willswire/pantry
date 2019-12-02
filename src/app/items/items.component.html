@@ -3,14 +3,15 @@
   <mat-icon>search</mat-icon>
 </mat-card>
 <div id="item-grid">
-  <div *ngFor="let item of items | filter: searchText" class = "item-card">
+  <div *ngFor="let item of items | filter: searchText" class="item-card">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{ item.name }}
         </mat-panel-title>
         <mat-panel-description>
-          <mat-icon>{{ item.icon }}</mat-icon>
+          <!--<mat-icon>{{ item.icon }}</mat-icon>-->
+          <mat-icon [innerHTML]="item.emoji"></mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
       <p>Description: {{ item.description }} </p>
