@@ -16,7 +16,7 @@
       </mat-expansion-panel-header>
       <p>Description: {{ item.description }} </p>
       <mat-action-row>
-        <button mat-raised-button color="accent" (click)="addItemToList({{item.id}})">Add</button>
+        <button mat-raised-button color="accent" (click)="addItemToList(item._id)">Add</button>
       </mat-action-row>
     </mat-expansion-panel>
   </div>

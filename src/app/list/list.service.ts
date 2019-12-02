@@ -56,10 +56,13 @@ export class ListService {
   }
 
   public getItems(listID: String) {
-    return this._http.get<any>(
+    let items = [];
+    this._http.get<any>(
       `https://pantry-api.glitch.me/api/lists/${listID}`,
       {headers: this.headers}
-    ).subscribe(val => val.items);
+    ).subscribe(val => items.concat(val));
+    
+    return items;
   }
 
   public addItem(listID: String, itemList : String[]) {

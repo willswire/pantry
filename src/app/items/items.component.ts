@@ -47,7 +47,7 @@ export class ItemsComponent implements OnInit {
   }
 
   addItemToList(itemID : String) {
-    var itemList : any = this._listSvc.getItems(this.userLists[0]);
+    var itemList : String[] = this._listSvc.getItems(this.userLists[0]);
     itemList.push(itemID);
     this._listSvc.addItem(this.userLists[0], itemList);
   }
