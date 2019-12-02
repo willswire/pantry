@@ -46,4 +46,19 @@ export class ListService {
       { headers: this.headers }
     );
   }
+
+  public getItems(listID: String) {
+    return this._http.get<any>(
+      `https://pantry-api.glitch.me/api/lists/${listID}`,
+      {headers: this.headers}
+    ).subscribe(val => val.items);
+  }
+
+  public addItem(listID: String, itemList : String[]) {
+    return this._http.put(
+      `https://pantry-api.glitch.me/api/lists/${listID}`,
+      { 'items' : itemList },
+      { headers : this.headers }
+    );
+  }
 }
