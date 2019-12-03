@@ -10,6 +10,7 @@ import { ShareComponent } from "./share/share.component";
 export interface DialogData {
   listName: string;
   items: Object[];
+  listRef: string;
 }
 
 @Component({
@@ -44,7 +45,7 @@ export class ListComponent implements OnInit {
   editList() {
     const dialogRef = this.dialog.open(EditComponent, {
       width: "400px",
-      data: { listName: this.listName }
+      data: { listName: this.listName, listRef: this.listRef }
     });
 
     dialogRef.afterClosed().subscribe(result => {
