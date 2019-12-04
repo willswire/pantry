@@ -65,10 +65,9 @@ export class ListService {
     return items;
   }
 
-  public addItem(listID: String, itemList : String[]) {
+  public addItem(listID: String, itemID: String) {
     return this._http.put(
-      `https://pantry-api.glitch.me/api/lists/${listID}`,
-      { 'items' : itemList },
+      `https://pantry-api.glitch.me/api/lists/${listID}/add/${itemID}`,
       { headers : this.headers }
     );
   }
