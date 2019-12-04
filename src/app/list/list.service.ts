@@ -55,6 +55,24 @@ export class ListService {
     );
   }
 
+  public getItems(listID: String) {
+    let items = [];
+    this._http.get<any>(
+      `https://pantry-api.glitch.me/api/lists/${listID}`,
+      {headers: this.headers}
+    ).subscribe(val => items.concat(val));
+    
+    return items;
+  }
+
+  public addItem(listID: String, itemID: String) {
+    return this._http.put(
+      `https://pantry-api.glitch.me/api/lists/${listID}/add/${itemID}`,
+      { headers : this.headers }
+
+    );
+  }
+
   public deleteItem(listID: string, itemID: string) {
     return this._http.delete(
       `https://pantry-api.glitch.me/api/lists/${listID}/${itemID}`,
