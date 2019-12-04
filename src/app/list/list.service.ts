@@ -69,6 +69,18 @@ export class ListService {
     return this._http.put(
       `https://pantry-api.glitch.me/api/lists/${listID}/add/${itemID}`,
       { headers : this.headers }
+
+    );
+  }
+
+  public deleteItem(listID: string, itemID: string) {
+    return this._http.delete(
+      `https://pantry-api.glitch.me/api/lists/${listID}/${itemID}`,
+      {
+        headers: this.headers,
+        observe: "response",
+        responseType: "text"
+      }
     );
   }
 }
